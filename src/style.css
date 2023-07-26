@@ -2,8 +2,24 @@
 .pop-up-proj, 
 .pop-up-note {
   display: none;
+  grid-template-columns: 1fr 3fr;
+  width: 60%;
+  height: 40%;
 }
 
-.display {
-  display: block;
+.pop-header {
+  grid-column: 1/3;
 }
+
+.pop-l-col,
+.pop-r-col, 
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
