@@ -16,6 +16,7 @@
           <div class="top">
             <button class="home">Home</button>
             <p class="projects">Projects</p>
+            <div class="added-projs"></div>
             <button class="notes">Notes</button>
           </div>
           <div class="bottom">
@@ -37,7 +38,7 @@
       <div class="pop-r-col">
         <form name="add" id="add">
           <input type="text" name="title" id="title" placeholder="Title">
-          <textarea placeholder="Details" id="details"></textarea>
+          <textarea placeholder="Details" name="details" id="details"></textarea>
           <div class="due">
             <p>Due date: </p>
             <input type="date">
@@ -45,11 +46,11 @@
           <div class="footer">
             <div class="priority">
               <p>Priority: </p>
-              <button>Low</button>
-              <button>Medium</button>
-              <button>High</button>
+              <button type="button">Low</button>
+              <button type="button">Medium</button>
+              <button type="button">High</button>
             </div>
-            <button class="add-td">Add to-do</button>
+            <button class="add-td" type="submit">Add to-do</button>
           </div>
         </form>
       </div>
@@ -66,8 +67,8 @@
         <div class="pop-r-col">
           <form name="add" id="add">
             <input type="text" name="title" id="title" placeholder="Title">
-            <textarea placeholder="Details" id="details"></textarea>
-            <button class="add-proj">Add project</button>
+            <textarea placeholder="Details" name="details" id="details"></textarea>
+            <button class="add-proj" type="submit">Add project</button>
           </form>
         </div>
       </div>
@@ -83,8 +84,8 @@
         <div class="pop-r-col">
           <form name="add" id="add">
             <input type="text" name="title" id="title" placeholder="Title">
-            <textarea placeholder="Details" id="details"></textarea>
-            <button class="add-note">Add note</button>
+            <textarea placeholder="Details" name="details" id="details"></textarea>
+            <button class="add-note-btn" type="submit">Add note</button>
           </form>
         </div>
       </div>
