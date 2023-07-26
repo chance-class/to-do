@@ -1,0 +1,9 @@
+.pop-up-td, 
+.pop-up-proj, 
+.pop-up-note {
+  display: none;
+}
+
+.display {
+  display: block;
+}
