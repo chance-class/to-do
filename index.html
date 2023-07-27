@@ -34,20 +34,20 @@
     </div>
     <div class="pop-up-td">
       <div class="pop-r-col">
-        <h2>Add To-Do</h2>
+        <h2>New To-Do</h2>
         <form name="add" id="add">
           <input type="text" name="title" id="title" placeholder="Title">
           <textarea placeholder="Details" name="details" id="details"></textarea>
           <div class="due">
             <p>Due date: </p>
-            <input type="date">
+            <input type="date" name="duedate" id="duedate">
           </div>
           <div class="footer">
             <div class="priority">
               <p>Priority: </p>
-              <button type="button">Low</button>
-              <button type="button">Medium</button>
-              <button type="button">High</button>
+              <button type="button" id="low">Low</button>
+              <button type="button" id="medium">Medium</button>
+              <button type="button" id="high">High</button>
             </div>
             <button class="add-td" type="submit">Add to-do</button>
           </div>
@@ -56,7 +56,7 @@
     </div>
     <div class="pop-up-proj">
         <div class="pop-r-col">
-          <h2>Add Project</h2>
+          <h2>New Project</h2>
           <form name="add" id="add">
             <input type="text" name="title" id="title" placeholder="Title">
             <textarea placeholder="Details" name="details" id="details"></textarea>
@@ -66,7 +66,7 @@
       </div>
       <div class="pop-up-note">
         <div class="pop-r-col">
-          <h2>Add Note</h2>
+          <h2>New Note</h2>
           <form name="add" id="add">
             <input type="text" name="title" id="title" placeholder="Title">
             <textarea placeholder="Details" name="details" id="details"></textarea>
