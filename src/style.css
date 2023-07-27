@@ -8,6 +8,8 @@
 
 .pop-up-select {
   display: none;
+  width: 40%;
+  justify-content: center;
 }
 
 .pop-header {
