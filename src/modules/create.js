@@ -18,3 +18,24 @@ displayTD = (name, details, duedate) => {
   currentProj.UL.appendChild(li);
 }
 
+class TD {
+    constructor (name, details, duedate) {
+      this.name = name;
+      this.details = details;
+      this.duedate = duedate;
+    }
+  }
+  
+  createTD = (name, details, duedate) => {
+    currentProj.todos.push(new TD(name, details, duedate));
+    displayTD(name, duedate);
+  }
+  
+  class Proj {
+    constructor (name, details) {
+      this.name = name;
+      this.details = details;
+    }
+    todos = [];
+    UL = document.createElement("ul");
+  }
