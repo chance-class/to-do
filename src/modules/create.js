@@ -1,5 +1,5 @@
 
-displayTD = (name, details, duedate) => {
+export const createTD = (name, details, duedate) => {
   const li = document.createElement("li");
   const td = document.createElement("div");
   li.appendChild(td);
@@ -10,11 +10,11 @@ displayTD = (name, details, duedate) => {
   det.textContent = "Details";
   det.addEventListener("click", () => {
     const popup = document.querySelector(".pop-up-details");
-    const title = document.getElementById("title");
+    const title = document.getElementById("pop-title");
     title.textContent = name;
-    const due = document.getElementById("due");
+    const due = document.getElementById("pop-due");
     due.textContent = duedate;
-    const info = document.getElementById("details");
+    const info = document.getElementById("pop-details");
     info.textContent = details;
     popup.style.display = "grid";
   })
@@ -22,27 +22,32 @@ displayTD = (name, details, duedate) => {
   const tdDue = document.createElement("p");
   tdDue.textContent = duedate;
   td.appendChild(tdDue);
-  currentProj.UL.appendChild(li);
+  const rCol = document.querySelector(".r-col");
+  rCol.appendChild(li);
 }
 
-class TD {
-    constructor (name, details, duedate) {
-      this.name = name;
-      this.details = details;
-      this.duedate = duedate;
-    }
-  }
+
+
+
+
+
+
+// Drafts:
   
-  createTD = (name, details, duedate) => {
-    currentProj.todos.push(new TD(name, details, duedate));
-    displayTD(name, duedate);
-  }
+const draftTD = (name, details, duedate) => {
+//  currentProj.todos.push(new TD(name, details, duedate));
+  createTD(name, details, duedate);
+}
   
-  class Proj {
-    constructor (name, details) {
-      this.name = name;
-      this.details = details;
-    }
-    todos = [];
-    UL = document.createElement("ul");
+class Proj {
+  constructor (name, details) {
+    this.name = name;
+    this.details = details;
   }
+  todos = [];
+  UL = document.createElement("ul");
+}
+
+const createProj = (name, details) => {
+  new Proj(name, details);
+}

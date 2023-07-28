@@ -12,6 +12,10 @@
   justify-content: center;
 }
 
+.pop-up-details {
+  display: none;
+}
+
 .pop-header {
   grid-column: 1/3;
 }
