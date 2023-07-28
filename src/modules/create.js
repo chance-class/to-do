@@ -2,12 +2,14 @@
 export const createTD = (name, details, duedate) => {
   const li = document.createElement("li");
   const td = document.createElement("div");
+  td.classList.add("td-li");
   li.appendChild(td);
   const tdName = document.createElement("p");
   tdName.textContent = name;
   td.appendChild(tdName);
   const det = document.createElement("button");
   det.textContent = "Details";
+  det.classList.add("li-details");
   det.addEventListener("click", () => {
     const popup = document.querySelector(".pop-up-details");
     const title = document.getElementById("pop-title");
