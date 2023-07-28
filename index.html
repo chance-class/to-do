@@ -27,19 +27,19 @@
     </div>
     <div class="pop-up-select">
       <h2>Add new:</h2>
-      <button class="add-td">To-Do</button>
-      <button class="add-proj">Project</button>
-      <button class="add-note">Note</button>
+      <button class="new-td">To-Do</button>
+      <button class="new-proj">Project</button>
+      <button class="new-note">Note</button>
     </div>
     <div class="pop-up-td">
       <div class="pop-r-col">
         <h2>New To-Do</h2>
-        <form name="add" id="add">
-          <input type="text" name="title" id="title" placeholder="Title" required>
-          <textarea placeholder="Details" name="details" id="details"></textarea>
+        <form name="addTD" id="addTD" method="post">
+          <input type="text" class="input" name="title" id="title" placeholder="Title" required>
+          <textarea placeholder="Details" class="input" name="details" id="details"></textarea>
           <div class="due">
             <p>Due date: </p>
-            <input type="date" name="duedate" id="duedate" required>
+            <input type="date" class="input" name="duedate" id="duedate" required>
           </div>
           <div class="footer">
             <div class="priority">
@@ -56,7 +56,7 @@
     <div class="pop-up-proj">
         <div class="pop-r-col">
           <h2>New Project</h2>
-          <form name="add" id="add">
+          <form name="addProj" id="addProj">
             <input type="text" name="title" id="title" placeholder="Title" required>
             <textarea placeholder="Details" name="details" id="details"></textarea>
             <button class="add-proj" type="submit">Add project</button>
@@ -66,7 +66,7 @@
       <div class="pop-up-note">
         <div class="pop-r-col">
           <h2>New Note</h2>
-          <form name="add" id="add">
+          <form name="addNote" id="addNote">
             <input type="text" name="title" id="title" placeholder="Title" required>
             <textarea placeholder="Details" name="details" id="details"></textarea>
             <button class="add-note-btn" type="submit">Add note</button>
@@ -74,9 +74,9 @@
         </div>
       </div>
       <div class="pop-up-details">
-        <div id="title"></div>
-        <div id="due"></div>
-        <div id="details"></div>
+        <div id="pop-title"></div>
+        <div id="pop-due"></div>
+        <div id="pop-details"></div>
       </div>
   </body>
 </html>
