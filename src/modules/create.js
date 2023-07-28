@@ -9,7 +9,14 @@ displayTD = (name, details, duedate) => {
   const det = document.createElement("button");
   det.textContent = "Details";
   det.addEventListener("click", () => {
-
+    const popup = document.querySelector(".pop-up-details");
+    const title = document.getElementById("title");
+    title.textContent = name;
+    const due = document.getElementById("due");
+    due.textContent = duedate;
+    const info = document.getElementById("details");
+    info.textContent = details;
+    popup.style.display = "grid";
   })
   td.appendChild(det);
   const tdDue = document.createElement("p");
