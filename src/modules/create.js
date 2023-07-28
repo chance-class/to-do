@@ -25,7 +25,11 @@ export const createTD = (name, details, duedate) => {
   tdDue.textContent = duedate;
   td.appendChild(tdDue);
   const rCol = document.querySelector(".r-col");
-  rCol.appendChild(li);
+  const children = rCol.children;
+  for (let i=0; i < children.length; i++) {
+    let child = children[i];
+    if (!(child.style.display === "none")) child.appendChild(li);
+  }
 }
 
 
