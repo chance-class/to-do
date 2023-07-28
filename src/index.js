@@ -9,6 +9,7 @@ const popupSelect = document.querySelector(".pop-up-select");
 const popupTD = document.querySelector(".pop-up-td");
 const popupProj = document.querySelector(".pop-up-proj");
 const popupNote = document.querySelector(".pop-up-note");
+const popupDetails = document.querySelector(".pop-up-details");
 
 add.addEventListener("click", () => {
   popupSelect.style.display = "grid";
@@ -49,3 +50,6 @@ tdForm.addEventListener("submit", (e) => {
   let allInputs = document.querySelectorAll('.input');
     allInputs.forEach(singleInput => singleInput.value = '');
 })
+
+const closeBtn = document.getElementById("close-details");
+closeBtn.addEventListener("click", () => popupDetails.style.display = "none")

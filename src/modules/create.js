@@ -13,11 +13,11 @@ export const createTD = (name, details, duedate) => {
   det.addEventListener("click", () => {
     const popup = document.querySelector(".pop-up-details");
     const title = document.getElementById("pop-title");
-    title.textContent = name;
+    title.textContent = `Title: ${name}`;
     const due = document.getElementById("pop-due");
-    due.textContent = duedate;
+    due.textContent = `Due date: ${duedate}`;
     const info = document.getElementById("pop-details");
-    info.textContent = details;
+    info.textContent = `Details: ${details}`;
     popup.style.display = "grid";
   })
   td.appendChild(det);
