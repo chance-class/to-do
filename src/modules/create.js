@@ -33,7 +33,18 @@ export const createTD = (name, details, duedate) => {
   const header = document.querySelector(".proj-header");
   if (!(header.textContent === "Home")) {
     const homeDiv = document.querySelector(".home-div");
-    homeDiv.appendChild(li.cloneNode(true));
+    const liHome = li.cloneNode(true);
+    liHome.addEventListener("click", () => {
+      const popup = document.querySelector(".pop-up-details");
+      const title = document.getElementById("pop-title");
+      title.textContent = `Title: ${name}`;
+      const due = document.getElementById("pop-due");
+      due.textContent = `Due date: ${duedate}`;
+      const info = document.getElementById("pop-details");
+      info.textContent = `Details: ${details}`;
+      popup.style.display = "grid";
+    })
+    homeDiv.appendChild(liHome);
   }
 }
 
