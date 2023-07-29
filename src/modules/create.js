@@ -30,6 +30,11 @@ export const createTD = (name, details, duedate) => {
     let child = children[i];
     if (!(child.style.display === "none")) child.appendChild(li);
   }
+  const header = document.querySelector(".proj-header");
+  if (!(header.textContent === "Home")) {
+    const homeDiv = document.querySelector(".home-div");
+    homeDiv.appendChild(li.cloneNode(true));
+  }
 }
 
 export const createProj = (title, details) => {
