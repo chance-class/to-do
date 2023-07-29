@@ -11,18 +11,20 @@
 .pop-up-proj, 
 .pop-up-note {
   display: none;
-  width: 60%;
-  height: 40%;
+  width: 600px;
+  height: 400px;
 }
 
 .pop-up-select {
   display: none;
-  width: 40%;
+  width: 400px;
   justify-content: center;
 }
 
 .pop-up-details {
   display: none;
+  width: 500px;
+  height: 200px;
 }
 
 .pop-header {
@@ -53,3 +55,32 @@ li {
   margin-left: auto;
 }
 
+body {
+  position: relative;
+}
+
+.pop-up-td, 
+.pop-up-proj, 
+.pop-up-note {
+    z-index: 9;
+    position: absolute;
+    left: 42%;
+    margin: -5px auto 20px -200px;
+    text-align: left;
+}
+
+.pop-up-select {
+    z-index: 9;
+    position: absolute;
+    left: 50%;
+    margin: -5px auto 20px -200px;
+    text-align: center;
+}
+
+.pop-up-details {
+    z-index: 9;
+    position: absolute;
+    left: 45%;
+    margin: -5px auto 20px -200px;
+    text-align: left;
+}
