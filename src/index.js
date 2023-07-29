@@ -62,7 +62,7 @@ projForm.addEventListener("submit", (e) => {
   const title = document.getElementById("title-proj").value;
   const details = document.getElementById("details-proj").value;
   createProj(title, details);
-  popupNote.style.display = "none";
+  popupProj.style.display = "none";
   let allInputs = document.querySelectorAll('.input');
   allInputs.forEach(singleInput => singleInput.value = '');
 })
