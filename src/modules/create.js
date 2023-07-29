@@ -72,6 +72,10 @@ export const createProj = (title, details) => {
     const popup = document.querySelector(".pop-up-details");
     const info = document.getElementById("pop-details");
     info.textContent = `Details: ${details}`;
+    const title = document.getElementById("pop-title");
+    const duedate = document.getElementById("pop-due");
+    title.textContent = "";
+    duedate.textContent = "";
     popup.style.display = "grid";
   })
   div.appendChild(det);
