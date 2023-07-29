@@ -1,5 +1,5 @@
 import './style.css';
-import { createTD, createProj } from './modules/create.js';
+import { createTD, createProj, createNote } from './modules/create.js';
 
 createTD("Call Mom", "Give Mom a call back soon", "2023-07-29");
 createTD("Go to HEB", "Need to buy dog food", "2023-07-30");
@@ -11,6 +11,7 @@ const popupProj = document.querySelector(".pop-up-proj");
 const popupNote = document.querySelector(".pop-up-note");
 const popupDetails = document.querySelector(".pop-up-details");
 const home = document.querySelector(".home");
+const notes = document.querySelector(".notes");
 
 add.addEventListener("click", () => {
   popupSelect.style.display = "grid";
@@ -61,7 +62,18 @@ projForm.addEventListener("submit", (e) => {
   const title = document.getElementById("title-proj").value;
   const details = document.getElementById("details-proj").value;
   createProj(title, details);
-  popupProj.style.display = "none";
+  popupNote.style.display = "none";
+  let allInputs = document.querySelectorAll('.input');
+  allInputs.forEach(singleInput => singleInput.value = '');
+})
+
+const noteForm = document.querySelector("#addNote");
+noteForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const title = document.getElementById("title-note").value;
+  const details = document.getElementById("details-note").value;
+  createNote(title, details);
+  popupNote.style.display = "none";
   let allInputs = document.querySelectorAll('.input');
   allInputs.forEach(singleInput => singleInput.value = '');
 })
@@ -77,4 +89,17 @@ home.addEventListener("click", () => {
   homeDiv.style.display = "block";
   const header = document.querySelector(".proj-header");
   header.textContent = "Home";
+})
+
+notes.addEventListener("click", () => {
+    const search = document.querySelector(".search");
+    const children = search.children;
+    for (let i=0; i < children.length; i++) {
+      let child = children[i];
+      if (!(child.style.display === "none")) child.style.display = "none";
+    }
+  const notesDiv = document.querySelector(".notes-div");
+  notesDiv.style.display = "block";
+  const header = document.querySelector(".proj-header");
+  header.textContent = "Notes";
 })

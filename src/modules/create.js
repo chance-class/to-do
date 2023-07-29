@@ -67,12 +67,14 @@ export const createProj = (title, details) => {
   div.classList.add(`${className}-div`);
   search.appendChild(div);
   const det = document.createElement("button");
+  det.textContent = "Details";
   det.addEventListener("click", () => {
     const popup = document.querySelector(".pop-up-details");
     const info = document.getElementById("pop-details");
     info.textContent = `Details: ${details}`;
     popup.style.display = "grid";
   })
+  div.appendChild(det);
   newProj.addEventListener("click", () => {
     const search = document.querySelector(".search");
     const children = search.children;
@@ -88,7 +90,18 @@ export const createProj = (title, details) => {
 }
 
 
-
+export const createNote = (name, details) => {
+  const noteDiv = document.querySelector(".notes-div");
+  const note = document.createElement("div");
+  note.classList.add("added-note");
+  const noteName = document.createElement("p");
+  noteName.textContent = name;
+  note.appendChild(noteName)
+  const noteDetails = document.createElement("p");
+  noteDetails.textContent = details;
+  note.appendChild(noteDetails);
+  noteDiv.appendChild(note);
+}
 
 
 // Drafts:
