@@ -1,5 +1,5 @@
 import './style.css';
-import { createTD } from './modules/create.js';
+import { createTD, createProj } from './modules/create.js';
 
 createTD("Call Mom", "Give Mom a call back soon", "2023-07-29");
 createTD("Go to HEB", "Need to buy dog food", "2023-07-30");
@@ -10,6 +10,7 @@ const popupTD = document.querySelector(".pop-up-td");
 const popupProj = document.querySelector(".pop-up-proj");
 const popupNote = document.querySelector(".pop-up-note");
 const popupDetails = document.querySelector(".pop-up-details");
+const home = document.querySelector(".home");
 
 add.addEventListener("click", () => {
   popupSelect.style.display = "grid";
@@ -42,14 +43,38 @@ newNote.addEventListener("click", () => {
 const tdForm = document.querySelector("#addTD");
 tdForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const title = document.getElementById("title").value;
-  const details = document.getElementById("details").value;
+  const title = document.getElementById("title-td").value;
+  const details = document.getElementById("details-td").value;
   const duedate = document.getElementById("duedate").value;
   createTD(title, details, duedate);
   popupTD.style.display = "none";
   let allInputs = document.querySelectorAll('.input');
-    allInputs.forEach(singleInput => singleInput.value = '');
+  allInputs.forEach(singleInput => singleInput.value = '');
 })
 
 const closeBtn = document.getElementById("close-details");
 closeBtn.addEventListener("click", () => popupDetails.style.display = "none")
+
+const projForm = document.querySelector("#addProj");
+projForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const title = document.getElementById("title-proj").value;
+  const details = document.getElementById("details-proj").value;
+  createProj(title, details);
+  popupProj.style.display = "none";
+  let allInputs = document.querySelectorAll('.input');
+  allInputs.forEach(singleInput => singleInput.value = '');
+})
+
+home.addEventListener("click", () => {
+  const search = document.querySelector(".search");
+  const children = search.children;
+  for (let i=0; i < children.length; i++) {
+    let child = children[i];
+    if (!(child.style.display === "none")) child.style.display = "none";
+  }
+  const homeDiv = document.querySelector(".home-div");
+  homeDiv.style.display = "block";
+  const header = document.querySelector(".proj-header");
+  header.textContent = "Home";
+})

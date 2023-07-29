@@ -24,15 +24,52 @@ export const createTD = (name, details, duedate) => {
   const tdDue = document.createElement("p");
   tdDue.textContent = duedate;
   td.appendChild(tdDue);
-  const rCol = document.querySelector(".r-col");
-  const children = rCol.children;
+  const search = document.querySelector(".search");
+  const children = search.children;
   for (let i=0; i < children.length; i++) {
     let child = children[i];
     if (!(child.style.display === "none")) child.appendChild(li);
   }
 }
 
-
+export const createProj = (title, details) => {
+  const header = document.querySelector(".proj-header");
+  header.textContent = `${title}`;
+  const addedProjs = document.querySelector(".added-projs");
+  const newProj = document.createElement("button");
+  newProj.textContent = `${title}`;
+  addedProjs.appendChild(newProj);
+  const search = document.querySelector(".search");
+  const children = search.children;
+  for (let i=0; i < children.length; i++) {
+    let child = children[i];
+    if (!(child.style.display === "none")) child.style.display = "none";
+  }
+  const div = document.createElement("div");
+  const newName = new String(title);
+  const className = newName.replace(/\s+/g, '-').toLowerCase();
+  div.classList.add(`${className}-div`);
+  search.appendChild(div);
+  const det = document.createElement("button");
+  det.addEventListener("click", () => {
+    const popup = document.querySelector(".pop-up-details");
+    const info = document.getElementById("pop-details");
+    info.textContent = `Details: ${details}`;
+    popup.style.display = "grid";
+  })
+  newProj.addEventListener("click", () => {
+    const search = document.querySelector(".search");
+    const children = search.children;
+    for (let i=0; i < children.length; i++) {
+      let child = children[i];
+      if (!(child.style.display === "none")) child.style.display = "none";
+      if (child.classList.contains(`${className}-div`)) {
+        child.style.display = "block";
+        header.textContent = `${title}`;
+      }
+    }
+  })
+}
 
 
 
@@ -54,6 +91,6 @@ class Proj {
   UL = document.createElement("ul");
 }
 
-const createProj = (name, details) => {
-  new Proj(name, details);
-}
+//const createProj = (name, details) => {
+  //new Proj(name, details);
+//}
