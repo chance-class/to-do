@@ -12,12 +12,16 @@ const popupNote = document.querySelector(".pop-up-note");
 const popupDetails = document.querySelector(".pop-up-details");
 const home = document.querySelector(".home");
 const notes = document.querySelector(".notes");
+const low = document.getElementById("low");
+const medium = document.getElementById("medium");
+const high = document.getElementById("high");
 
 add.addEventListener("click", () => {
   popupSelect.style.display = "grid";
   popupProj.style.display = "none";
   popupNote.style.display = "none";
   popupTD.style.display = "none";
+  popupDetails.style.display = "none";
 })
 const newTD = document.querySelector(".new-td");
 newTD.addEventListener("click", () => {
@@ -25,6 +29,7 @@ newTD.addEventListener("click", () => {
   popupSelect.style.display = "none";
   popupProj.style.display = "none";
   popupNote.style.display = "none";
+  popupDetails.style.display = "none";
 })
 const newProj = document.querySelector(".new-proj");
 newProj.addEventListener("click", () => {
@@ -32,6 +37,7 @@ newProj.addEventListener("click", () => {
   popupSelect.style.display = "none";
   popupNote.style.display = "none";
   popupTD.style.display = "none";
+  popupDetails.style.display = "none";
 })
 const newNote = document.querySelector(".new-note");
 newNote.addEventListener("click", () => {
@@ -39,6 +45,7 @@ newNote.addEventListener("click", () => {
   popupSelect.style.display = "none";
   popupTD.style.display = "none";
   popupProj.style.display = "none";
+  popupDetails.style.display = "none";
 })
 
 const tdForm = document.querySelector("#addTD");
@@ -103,3 +110,21 @@ notes.addEventListener("click", () => {
   const header = document.querySelector(".proj-header");
   header.textContent = "Notes";
 })
+
+low.addEventListener("click", () => {
+  low.classList.add("selected");
+  medium.classList.remove("selected");
+  high.classList.remove("selected");
+})
+
+medium.addEventListener("click", () => {
+    medium.classList.add("selected");
+    low.classList.remove("selected");
+    high.classList.remove("selected");
+  })
+
+  high.addEventListener("click", () => {
+    high.classList.add("selected");
+    medium.classList.remove("selected");
+    low.classList.remove("selected");
+  })

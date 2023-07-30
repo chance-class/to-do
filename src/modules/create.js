@@ -18,7 +18,18 @@ export const createTD = (name, details, duedate) => {
     due.textContent = `Due date: ${duedate}`;
     const info = document.getElementById("pop-details");
     info.textContent = `Details: ${details}`;
+    const selected = document.querySelector(".selected");
+    const priority = document.getElementById("priority");
+    priority.textContent = `Priority: ${selected.textContent}`;
     popup.style.display = "grid";
+    const popupTD = document.querySelector(".pop-up-td");
+    popupTD.style.display = "none";
+    const popupProj = document.querySelector(".pop-up-proj");
+    popupProj.style.display = "none";
+    const popupNote = document.querySelector(".pop-up-note");
+    popupNote.style.display = "none";
+    const popupSelect = document.querySelector(".pop-up-select");
+    popupSelect.style.display = "none";
   })
   td.appendChild(det);
   const tdDue = document.createElement("p");
@@ -43,6 +54,14 @@ export const createTD = (name, details, duedate) => {
       const info = document.getElementById("pop-details");
       info.textContent = `Details: ${details}`;
       popup.style.display = "grid";
+      const popupTD = document.querySelector(".pop-up-td");
+      popupTD.style.display = "none";
+      const popupProj = document.querySelector(".pop-up-proj");
+      popupProj.style.display = "none";
+      const popupNote = document.querySelector(".pop-up-note");
+      popupNote.style.display = "none";
+      const popupSelect = document.querySelector(".pop-up-select");
+      popupSelect.style.display = "none";
     })
     homeDiv.appendChild(liHome);
   }
@@ -77,6 +96,14 @@ export const createProj = (title, details) => {
     title.textContent = "";
     duedate.textContent = "";
     popup.style.display = "grid";
+    const popupTD = document.querySelector(".pop-up-td");
+    popupTD.style.display = "none";
+    const popupProj = document.querySelector(".pop-up-proj");
+    popupProj.style.display = "none";
+    const popupNote = document.querySelector(".pop-up-note");
+    popupNote.style.display = "none";
+    const popupSelect = document.querySelector(".pop-up-select");
+    popupSelect.style.display = "none";
   })
   div.appendChild(det);
   newProj.addEventListener("click", () => {
