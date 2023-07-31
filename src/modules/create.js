@@ -148,11 +148,12 @@ export const createProj = (title, details) => {
     popupSelect.style.display = "none";
   })
   const buttons = document.createElement("div");
+  buttons.classList.add("proj-btns");
   newDiv.appendChild(buttons);
   buttons.appendChild(det);
   const projTrash = document.createElement("img");
   projTrash.src = trash;
-  projTrash.setAttribute("height", "20px");
+  projTrash.setAttribute("height", "30px");
   projTrash.addEventListener("click", () => {
     const projLIs = document.querySelectorAll(`.${className}-div li`);
     console.log(projLIs);

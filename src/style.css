@@ -27,6 +27,18 @@ p {
   margin: 10px 0 10px;
 }
 
+.proj-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.added-projs {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
 .pop-up-td, 
 .pop-up-proj, 
 .pop-up-note {
