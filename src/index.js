@@ -1,8 +1,8 @@
 import './style.css';
 import { createTD, createProj, createNote } from './modules/create.js';
 
-createTD("Call Mom", "Give Mom a call back soon", "2023-07-29");
-createTD("Go to HEB", "Need to buy dog food", "2023-07-30");
+createTD("Call Mom", "Give Mom a call back soon", "2023-07-29", "Low");
+createTD("Go to HEB", "Need to buy dog food", "2023-07-30", "Medium");
 
 const add = document.querySelector(".add-btn");
 const popupSelect = document.querySelector(".pop-up-select");
@@ -54,7 +54,9 @@ tdForm.addEventListener("submit", (e) => {
   const title = document.getElementById("title-td").value;
   const details = document.getElementById("details-td").value;
   const duedate = document.getElementById("duedate").value;
-  createTD(title, details, duedate);
+  const selected = document.querySelector(".selected");
+  const priority = selected.textContent;
+  createTD(title, details, duedate, priority);
   popupTD.style.display = "none";
   let allInputs = document.querySelectorAll('.input');
   allInputs.forEach(singleInput => singleInput.value = '');

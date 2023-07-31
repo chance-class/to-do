@@ -1,5 +1,5 @@
 
-export const createTD = (name, details, duedate) => {
+export const createTD = (name, details, duedate, priority) => {
   const li = document.createElement("li");
   const td = document.createElement("div");
   td.classList.add("td-li");
@@ -18,9 +18,8 @@ export const createTD = (name, details, duedate) => {
     due.textContent = `Due date: ${duedate}`;
     const info = document.getElementById("pop-details");
     info.textContent = `Details: ${details}`;
-    const selected = document.querySelector(".selected");
-    const priority = document.getElementById("priority");
-    priority.textContent = `Priority: ${selected.textContent}`;
+    const tdPriority = document.getElementById("priority");
+    tdPriority.textContent = `Priority: ${priority}`;
     popup.style.display = "grid";
     const popupTD = document.querySelector(".pop-up-td");
     popupTD.style.display = "none";
@@ -53,6 +52,9 @@ export const createTD = (name, details, duedate) => {
       due.textContent = `Due date: ${duedate}`;
       const info = document.getElementById("pop-details");
       info.textContent = `Details: ${details}`;
+      const selected = document.querySelector(".selected");
+      const priority = document.getElementById("priority");
+      priority.textContent = `Priority: ${selected.textContent}`;
       popup.style.display = "grid";
       const popupTD = document.querySelector(".pop-up-td");
       popupTD.style.display = "none";
