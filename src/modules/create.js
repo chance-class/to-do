@@ -1,4 +1,6 @@
 
+import trash from '../images/trash.svg';
+
 export const createTD = (name, details, duedate, priority) => {
   const li = document.createElement("li");
   const td = document.createElement("div");
@@ -34,6 +36,22 @@ export const createTD = (name, details, duedate, priority) => {
   const tdDue = document.createElement("p");
   tdDue.textContent = duedate;
   td.appendChild(tdDue);
+  const tdTrash = document.createElement("img");
+  tdTrash.src = trash;
+  tdTrash.setAttribute("height", "20px");
+  tdTrash.addEventListener("click", () => {
+    li.remove();
+    const homeLIs = document.querySelectorAll(".li-home");
+        for (const chosen of homeLIs) {
+          chosen.classList.add("current");
+          const homePs = document.querySelectorAll(".current p");
+          for (const item of homePs) {
+            if (item.textContent === name) chosen.remove();
+          }
+          chosen.classList.remove("current");
+        }
+  })
+  td.appendChild(tdTrash);
   const search = document.querySelector(".search");
   const children = search.children;
   for (let i=0; i < children.length; i++) {
@@ -70,6 +88,21 @@ export const createTD = (name, details, duedate, priority) => {
       popupNote.style.display = "none";
       const popupSelect = document.querySelector(".pop-up-select");
       popupSelect.style.display = "none";
+    })
+    const images = document.querySelectorAll(".li-home img");
+    const thisImg = images[images.length - 1];
+    thisImg.addEventListener("click", () => {
+      const homePs = document.querySelectorAll(".li-home p");
+      const thisP = homePs[homePs.length - 2];
+      console.log(thisP);
+      const allItems = document.querySelectorAll("li");
+        for (const item of allItems) {
+          item.classList.add("temp");
+          const tempP = document.querySelector(".temp p");
+          if (tempP.textContent === thisP.textContent) item.remove();
+          item.classList.remove("temp");
+        }
+      liHome.remove();
     })
   }
 }
