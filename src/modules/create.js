@@ -121,11 +121,11 @@ export const createProj = (title, details) => {
     let child = children[i];
     if (!(child.style.display === "none")) child.style.display = "none";
   }
-  const div = document.createElement("div");
+  const newDiv = document.createElement("div");
   const newName = new String(title);
   const className = newName.replace(/\s+/g, '-').toLowerCase();
-  div.classList.add(`${className}-div`);
-  search.appendChild(div);
+  newDiv.classList.add(`${className}-div`);
+  search.appendChild(newDiv);
   const det = document.createElement("button");
   det.textContent = "Details";
   det.classList.add("proj-det");
@@ -147,7 +147,38 @@ export const createProj = (title, details) => {
     const popupSelect = document.querySelector(".pop-up-select");
     popupSelect.style.display = "none";
   })
-  div.appendChild(det);
+  const buttons = document.createElement("div");
+  newDiv.appendChild(buttons);
+  buttons.appendChild(det);
+  const projTrash = document.createElement("img");
+  projTrash.src = trash;
+  projTrash.setAttribute("height", "20px");
+  projTrash.addEventListener("click", () => {
+    const projLIs = document.querySelectorAll(`.${className}-div li`);
+    console.log(projLIs);
+    const homeLIs = document.querySelectorAll(".li-home");
+        for (const chosen of homeLIs) {
+          chosen.classList.add("current");
+          const homePs = document.querySelectorAll(".current p");
+          for (const nextP of homePs) {
+            for (const projItem of projLIs) {
+              projItem.classList.add("p-item");
+              const projPs = document.querySelectorAll(".p-item p");
+              for (const item of projPs) {
+                if (nextP.textContent === item.textContent) chosen.remove();
+              }
+              projItem.classList.remove("p-item");
+            }
+          }
+          chosen.classList.remove("current");
+        }
+    newDiv.remove();
+    header.textContent = "Home";
+    const home = document.querySelector(".home-div");
+    home.style.display = "block";
+    newProj.remove();
+  })
+  buttons.appendChild(projTrash);
   newProj.addEventListener("click", () => {
     const search = document.querySelector(".search");
     const children = search.children;
