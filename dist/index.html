@@ -29,62 +29,62 @@
             <div class="notes-div" style="display: none"></div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="pop-up-select">
-      <h2>Add new:</h2>
-      <button class="new-td">To-Do</button>
-      <button class="new-proj">Project</button>
-      <button class="new-note">Note</button>
-    </div>
-    <div class="pop-up-td">
-      <div class="pop-r-col">
-        <h2>New To-Do</h2>
-        <form name="addTD" id="addTD" method="post">
-          <input type="text" class="input" name="title-td" id="title-td" placeholder="Title" required>
-          <textarea placeholder="Details" class="input" name="details-td" id="details-td"></textarea>
-          <div class="due">
-            <p>Due date: </p>
-            <input type="date" class="input" name="duedate" id="duedate" required>
+        <div class="pop-up-select">
+            <h2>Add new:</h2>
+            <button class="new-td">To-Do</button>
+            <button class="new-proj">Project</button>
+            <button class="new-note">Note</button>
           </div>
-          <div class="footer">
-            <div class="priority">
-              <p>Priority: </p>
-              <button type="button" class="selected" id="low">Low</button>
-              <button type="button" id="medium">Medium</button>
-              <button type="button" id="high">High</button>
+          <div class="pop-up-td">
+            <div class="pop-r-col">
+              <h2>New To-Do</h2>
+              <form name="addTD" id="addTD" method="post">
+                <input type="text" class="input" name="title-td" id="title-td" placeholder="Title" required>
+                <textarea placeholder="Details" class="input" name="details-td" id="details-td"></textarea>
+                <div class="due">
+                  <p>Due date: </p>
+                  <input type="date" class="input" name="duedate" id="duedate" required>
+                </div>
+                <div class="footer">
+                  <div class="priority">
+                    <p>Priority: </p>
+                    <button type="button" class="selected" id="low">Low</button>
+                    <button type="button" id="medium">Medium</button>
+                    <button type="button" id="high">High</button>
+                  </div>
+                  <button class="add-td" type="submit">Add to-do</button>
+                </div>
+              </form>
             </div>
-            <button class="add-td" type="submit">Add to-do</button>
           </div>
-        </form>
+          <div class="pop-up-proj">
+              <div class="pop-r-col">
+                <h2>New Project</h2>
+                <form name="addProj" id="addProj">
+                  <input type="text" name="title-proj" class="input" id="title-proj" placeholder="Title" required>
+                  <textarea placeholder="Details" class="input" name="details-proj" id="details-proj"></textarea>
+                  <button class="add-proj" class="input" type="submit">Add project</button>
+                </form>
+              </div>
+            </div>
+            <div class="pop-up-note">
+              <div class="pop-r-col">
+                <h2>New Note</h2>
+                <form name="addNote" id="addNote">
+                  <input type="text" name="title-note"class="input"  id="title-note" placeholder="Title" required>
+                  <textarea placeholder="Details" class="input" name="details-note" id="details-note"></textarea>
+                  <button class="add-note-btn" class="input" type="submit">Add note</button>
+                </form>
+              </div>
+            </div>
+            <div class="pop-up-details">
+              <div id="pop-title"></div>
+              <div id="pop-due"></div>
+              <div id="priority"></div>
+              <div id="pop-details"></div>
+              <button id="close-details">Close</button>
+            </div>
       </div>
     </div>
-    <div class="pop-up-proj">
-        <div class="pop-r-col">
-          <h2>New Project</h2>
-          <form name="addProj" id="addProj">
-            <input type="text" name="title-proj" class="input" id="title-proj" placeholder="Title" required>
-            <textarea placeholder="Details" class="input" name="details-proj" id="details-proj"></textarea>
-            <button class="add-proj" class="input" type="submit">Add project</button>
-          </form>
-        </div>
-      </div>
-      <div class="pop-up-note">
-        <div class="pop-r-col">
-          <h2>New Note</h2>
-          <form name="addNote" id="addNote">
-            <input type="text" name="title-note"class="input"  id="title-note" placeholder="Title" required>
-            <textarea placeholder="Details" class="input" name="details-note" id="details-note"></textarea>
-            <button class="add-note-btn" class="input" type="submit">Add note</button>
-          </form>
-        </div>
-      </div>
-      <div class="pop-up-details">
-        <div id="pop-title"></div>
-        <div id="pop-due"></div>
-        <div id="priority"></div>
-        <div id="pop-details"></div>
-        <button id="close-details">Close</button>
-      </div>
   </body>
 </html>

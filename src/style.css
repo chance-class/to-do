@@ -1,4 +1,5 @@
 .content {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 50px 1fr;
@@ -18,24 +19,38 @@
   padding-left: 50px;
 }
 
+h2 {
+  margin: 0 0 10px 0;
+}
+
+p {
+  margin: 10px 0 10px;
+}
+
 .pop-up-td, 
 .pop-up-proj, 
 .pop-up-note {
   display: none;
   width: 600px;
-  height: 400px;
+  height: 300px;
+  background: teal;
+  padding: 20px;
 }
 
 .pop-up-select {
   display: none;
   width: 400px;
   justify-content: center;
+  background: teal;
+  padding: 20px;
 }
 
 .pop-up-details {
   display: none;
   width: 500px;
   height: 200px;
+  background: teal;
+  padding: 20px;
 }
 
 .pop-header {
@@ -116,17 +131,13 @@ li {
   margin-left: auto;
 }
 
-body {
-  position: relative;
-}
-
 .pop-up-td, 
 .pop-up-proj, 
 .pop-up-note {
     z-index: 9;
     position: absolute;
     left: 42%;
-    margin: -5px auto 20px -200px;
+    margin: 200px auto 20px -200px;
     text-align: left;
 }
 
@@ -134,7 +145,7 @@ body {
     z-index: 9;
     position: absolute;
     left: 50%;
-    margin: -5px auto 20px -200px;
+    margin: 200px auto 20px -200px;
     text-align: center;
 }
 
@@ -142,7 +153,7 @@ body {
     z-index: 9;
     position: absolute;
     left: 45%;
-    margin: -5px auto 20px -200px;
+    margin: 200px auto 20px -200px;
     text-align: left;
 }
 
