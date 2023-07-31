@@ -80,6 +80,7 @@ export const createProj = (title, details) => {
   const addedProjs = document.querySelector(".added-projs");
   const newProj = document.createElement("button");
   newProj.textContent = `${title}`;
+  newProj.classList.add("proj-btn");
   addedProjs.appendChild(newProj);
   const search = document.querySelector(".search");
   const children = search.children;
@@ -94,6 +95,7 @@ export const createProj = (title, details) => {
   search.appendChild(div);
   const det = document.createElement("button");
   det.textContent = "Details";
+  det.classList.add("proj-det");
   det.addEventListener("click", () => {
     const popup = document.querySelector(".pop-up-details");
     const info = document.getElementById("pop-details");
