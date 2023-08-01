@@ -180,6 +180,7 @@ li {
   width: 260px;
   white-space: pre-wrap;
   background: lavender;
+  padding: 0 10px;
 }
 
 .notes-div {
@@ -187,4 +188,10 @@ li {
   flex-wrap: wrap;
   gap: 20px;
   height: 600px;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

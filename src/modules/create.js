@@ -199,9 +199,18 @@ export const createNote = (name, details) => {
   const noteDiv = document.querySelector(".notes-div");
   const note = document.createElement("div");
   note.classList.add("added-note");
+  const noteHeader = document.createElement("div");
+  note.appendChild(noteHeader);
+  noteHeader.classList.add("note-header");
   const noteName = document.createElement("p");
   noteName.textContent = name;
-  note.appendChild(noteName)
+  noteName.style.fontWeight = "bold";
+  noteHeader.appendChild(noteName);
+  const deleteNote = document.createElement("img");
+  deleteNote.src = trash;
+  deleteNote.setAttribute("height", "20px");
+  deleteNote.addEventListener("click", () => note.remove());
+  noteHeader.appendChild(deleteNote);
   const noteDetails = document.createElement("p");
   noteDetails.textContent = details;
   note.appendChild(noteDetails);
