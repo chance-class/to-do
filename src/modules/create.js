@@ -61,8 +61,8 @@ export const createTD = (name, details, duedate, priority) => {
     let child = children[i];
     if (!(child.style.display === "none")) child.appendChild(li);
   }
-  const header = document.querySelector(".proj-header");
-  if (!(header.textContent === "Home")) {
+  const homeDiv = document.querySelector(".home-div");
+  if (homeDiv.style.display === "none") {
     const homeDiv = document.querySelector(".home-div");
     const liHome = li.cloneNode(true);
     liHome.classList.add("li-home")
@@ -114,8 +114,6 @@ export const createTD = (name, details, duedate, priority) => {
 }
 
 export const createProj = (title, details) => {
-  const header = document.querySelector(".proj-header");
-  header.textContent = `${title}`;
   const addedProjs = document.querySelector(".added-projs");
   const newProj = document.createElement("button");
   newProj.textContent = `${title}`;
@@ -185,7 +183,6 @@ export const createProj = (title, details) => {
           chosen.classList.remove("current");
         }
     newDiv.remove();
-    header.textContent = "Home";
     const home = document.querySelector(".home-div");
     home.style.display = "block";
     newProj.remove();
@@ -199,7 +196,6 @@ export const createProj = (title, details) => {
       if (!(child.style.display === "none")) child.style.display = "none";
       if (child.classList.contains(`${className}-div`)) {
         child.style.display = "block";
-        header.textContent = `${title}`;
       }
     }
   })

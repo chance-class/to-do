@@ -96,8 +96,6 @@ home.addEventListener("click", () => {
   }
   const homeDiv = document.querySelector(".home-div");
   homeDiv.style.display = "block";
-  const header = document.querySelector(".proj-header");
-  header.textContent = "Home";
 })
 
 notes.addEventListener("click", () => {
@@ -109,8 +107,6 @@ notes.addEventListener("click", () => {
     }
   const notesDiv = document.querySelector(".notes-div");
   notesDiv.style.display = "flex";
-  const header = document.querySelector(".proj-header");
-  header.textContent = "Notes";
 })
 
 low.addEventListener("click", () => {
