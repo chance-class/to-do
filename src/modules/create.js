@@ -25,7 +25,7 @@ export const createTD = (name, details, duedate, priority) => {
     const tdPriority = document.getElementById("priority");
     tdPriority.style.display = "block";
     tdPriority.textContent = `Priority: ${priority}`;
-    popup.style.display = "grid";
+    popup.style.display = "flex";
     const popupTD = document.querySelector(".pop-up-td");
     popupTD.style.display = "none";
     const popupProj = document.querySelector(".pop-up-proj");
@@ -85,7 +85,7 @@ export const createTD = (name, details, duedate, priority) => {
       const tdPriority = document.getElementById("priority");
       tdPriority.textContent = `Priority: ${priority}`;
       tdPriority.style.display = "block";
-      popup.style.display = "grid";
+      popup.style.display = "flex";
       const popupTD = document.querySelector(".pop-up-td");
       popupTD.style.display = "none";
       const popupProj = document.querySelector(".pop-up-proj");
@@ -148,7 +148,7 @@ export const createProj = (title, details) => {
     title.style.display = "none";
     duedate.textContent = "";
     duedate.style.display = "none";
-    popup.style.display = "grid";
+    popup.style.display = "flex";
     const popupTD = document.querySelector(".pop-up-td");
     popupTD.style.display = "none";
     const popupProj = document.querySelector(".pop-up-proj");

@@ -49,7 +49,7 @@ p {
   width: 600px;
   height: 300px;
   background: teal;
-  padding: 20px;
+  padding: 10px;
 }
 
 .pop-up-select {
@@ -57,15 +57,18 @@ p {
   width: 400px;
   justify-content: center;
   background: teal;
-  padding: 20px;
+  padding: 10px;
 }
 
 .pop-up-details {
   display: none;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 10px;
   width: 500px;
-  height: 200px;
+  /*height: 200px;*/
   background: teal;
-  padding: 20px;
+  padding: 10px;
 }
 
 .pop-header {
@@ -194,4 +197,11 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+#close-details {
+  height: 35px;
+  width: 100px;
+  justify-self: end;
+  align-self: center;
 }
