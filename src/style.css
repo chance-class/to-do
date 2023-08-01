@@ -219,3 +219,8 @@ li {
   justify-self: end;
   align-self: center;
 }
+
+#pop-title {
+  font-weight: bold;
+  font-size: 26px;
+}

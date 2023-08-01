@@ -16,7 +16,7 @@ export const createTD = (name, details, duedate, priority) => {
     const popup = document.querySelector(".pop-up-details");
     const title = document.getElementById("pop-title");
     title.style.display = "block";
-    title.textContent = `Title: ${name}`;
+    title.textContent = `${name}`;
     const due = document.getElementById("pop-due");
     due.style.display = "block";
     due.textContent = `Due date: ${duedate}`;
@@ -75,7 +75,7 @@ export const createTD = (name, details, duedate, priority) => {
       const popup = document.querySelector(".pop-up-details");
       const title = document.getElementById("pop-title");
       title.style.display = "block";
-      title.textContent = `Title: ${name}`;
+      title.textContent = `${name}`;
       const due = document.getElementById("pop-due");
       due.style.display = "block";
       due.textContent = `Due date: ${duedate}`;
@@ -136,14 +136,14 @@ export const createProj = (title, details) => {
   det.addEventListener("click", () => {
     const popup = document.querySelector(".pop-up-details");
     const info = document.getElementById("pop-details");
-    info.textContent = `Details: ${details}`;
-    const title = document.getElementById("pop-title");
+    info.textContent = `${details}`;
+    const projTitle = document.getElementById("pop-title");
     const duedate = document.getElementById("pop-due");
     const priority = document.getElementById("priority");
     priority.textContent = "";
     priority.style.display = "none";
-    title.textContent = "";
-    title.style.display = "none";
+    projTitle.textContent = `${title}`;
+   // projTitle.style.display = "none";
     duedate.textContent = "";
     duedate.style.display = "none";
     popup.style.display = "flex";
