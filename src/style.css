@@ -186,29 +186,26 @@ li {
   white-space: pre-wrap;
   background: lavender;
   padding: 0 10px;
-  display: inline-block;
+  /* display: inline-block;
   margin: 0 1em 1em;
-  width: 95%;
+  width: 95%; */
 }
 
 .notes-div {
-  /* flex-direction: column;
+    box-sizing: border-box;
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 20px;
   height: 560px;
+  padding: 10px;
   background: rgb(230, 230, 174);
-  overflow: auto; */
-  column-count: 3;
+  overflow: auto; 
+  /* column-count: 3;
   max-width: 920px;
-  padding-right: 20px;
+  padding-right: 20px; */
 }
 
-.search {
-  height: 560px;
-  max-width: 920px;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
+
 
 .note-header {
   display: flex;
