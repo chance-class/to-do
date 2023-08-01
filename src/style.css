@@ -1,10 +1,13 @@
 .content {
   position: relative;
   display: grid;
+  box-sizing: border-box;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 50px 1fr;
   width: 1200px;
   height: 700px;
+  background: rgb(217, 248, 238);
+  padding: 20px;
 }
 
 .container {
@@ -171,4 +174,17 @@ li {
 
 .selected {
   border: 3px solid;
+}
+
+.added-note {
+  width: 260px;
+  white-space: pre-wrap;
+  background: lavender;
+}
+
+.notes-div {
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  height: 600px;
 }
