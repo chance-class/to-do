@@ -106,7 +106,7 @@ notes.addEventListener("click", () => {
       if (!(child.style.display === "none")) child.style.display = "none";
     }
   const notesDiv = document.querySelector(".notes-div");
-  notesDiv.style.display = "flex";
+  notesDiv.style.display = "block";
 })
 
 low.addEventListener("click", () => {
