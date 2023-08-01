@@ -201,11 +201,14 @@ export const createProj = (title, details) => {
   })
 }
 
+let n = 1;
 
 export const createNote = (name, details) => {
   const noteDiv = document.querySelector(".notes-div");
   const note = document.createElement("div");
   note.classList.add("added-note");
+  note.style.order = `-${n}`;
+  n++;
   const noteHeader = document.createElement("div");
   note.appendChild(noteHeader);
   noteHeader.classList.add("note-header");
