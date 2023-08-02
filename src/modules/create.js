@@ -8,6 +8,10 @@ export const createTD = (name, details, duedate, priority) => {
   li.appendChild(td);
   const tdName = document.createElement("p");
   tdName.textContent = name;
+  const check = document.createElement("input");
+  check.setAttribute("type", "checkbox");
+  check.addEventListener("click", () => tdName.classList.toggle("checked"));
+  td.appendChild(check);
   td.appendChild(tdName);
   const det = document.createElement("button");
   det.textContent = "Details";
