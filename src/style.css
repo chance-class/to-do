@@ -7,7 +7,6 @@
   width: 1200px;
   height: 700px;
   background: rgb(217, 248, 238);
-  overflow: auto;
 }
 
 .container {
@@ -117,12 +116,10 @@ form {
   background: red;
 }
 
-.r-col {
-  padding: 0 50px;
-}
-
 .search {
-  margin-top: 40px;
+  padding: 0 40px;
+  margin: 40px 0;
+  height: 540px;
   overflow: auto;
 }
 
@@ -196,8 +193,8 @@ li {
 
 .added-note {
   box-sizing: border-box;
-  width: 240px;
-  height: 240px;
+  width: 247px;
+  height: 247px;
   overflow: hidden;
   white-space: pre-wrap;
   background: lavender;
@@ -212,11 +209,11 @@ li {
     box-sizing: border-box;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 25px;
-  height: 620px;
-  padding: 40px 20px;
+  padding: 0 20px;
+  row-gap: 30px;
+  column-gap: 40px;
+  min-height: 540px;
   background: rgb(230, 230, 174);
-  overflow: auto; 
   /* column-count: 3;
   max-width: 920px;
   padding-right: 20px; */
