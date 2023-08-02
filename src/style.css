@@ -80,6 +80,7 @@ form {
 .footer {
   display: flex;
   justify-content: space-between;
+  align-items: end;
 }
 
 .bottom {
@@ -109,6 +110,17 @@ form {
 .proj-det {
   width: 100px;
   height: 30px;
+}
+
+.li-details, 
+.low, 
+.medium, 
+.high {
+  text-transform: uppercase;
+}
+
+textarea {
+  height: 100px;
 }
 
 .l-col {
@@ -187,8 +199,36 @@ li {
     min-height: 400px;
 }
 
-.selected {
-  border: 3px solid;
+.low {
+  background: rgb(166, 248, 166);
+  border: none;
+}
+
+.selected.low {
+  border: 3px solid green;
+}
+
+.medium {
+  background: rgb(248, 248, 173);
+  border: none;
+}
+
+.medium.selected {
+  border: 3px solid yellow;
+}
+
+.high {
+  background: rgb(243, 162, 162);
+  border: none;
+}
+
+.high.selected {
+  border: 3px solid red;
+}
+
+.add-td {
+  height: 40px;
+  width: 100px;
 }
 
 .added-note {
@@ -239,4 +279,19 @@ li {
 #pop-title {
   font-weight: bold;
   font-size: 26px;
+}
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+}
+
+.nav-btn:hover, 
+.add-btn:hover {
+  font-weight: bold;
+}
+
+.active {
+  font-weight: bold;
 }

@@ -124,6 +124,7 @@ export const createProj = (title, details) => {
   const newProj = document.createElement("button");
   newProj.textContent = `${title}`;
   newProj.classList.add("proj-btn");
+  newProj.classList.add("nav-btn");
   addedProjs.appendChild(newProj);
   const search = document.querySelector(".search");
   const children = search.children;
@@ -203,6 +204,9 @@ export const createProj = (title, details) => {
       if (child.classList.contains(`${className}-div`)) {
         child.style.display = "block";
       }
+      const navBtns = document.querySelectorAll(".nav-btn");
+      for (const btn of navBtns) btn.classList.remove("active");
+      newProj.classList.add("active");
     }
   })
 }

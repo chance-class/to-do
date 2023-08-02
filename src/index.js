@@ -11,10 +11,20 @@ const popupProj = document.querySelector(".pop-up-proj");
 const popupNote = document.querySelector(".pop-up-note");
 const popupDetails = document.querySelector(".pop-up-details");
 const home = document.querySelector(".home");
+home.classList.add("active");
 const notes = document.querySelector(".notes");
-const low = document.getElementById("low");
-const medium = document.getElementById("medium");
-const high = document.getElementById("high");
+const low = document.querySelector(".low");
+const medium = document.querySelector(".medium");
+const high = document.querySelector(".high");
+
+document.addEventListener("click", (e) => {
+  if (!(add.contains(e.target)) && !(popupSelect.contains(e.target)) && !(popupTD.contains(e.target)) && !(popupProj.contains(e.target)) && !(popupNote.contains(e.target))) {
+    popupSelect.style.display = "none";
+    popupTD.style.display = "none";
+    popupProj.style.display = "none";
+    popupNote.style.display = "none";
+  }
+})
 
 add.addEventListener("click", () => {
   popupSelect.style.display = "grid";
@@ -96,6 +106,9 @@ home.addEventListener("click", () => {
   }
   const homeDiv = document.querySelector(".home-div");
   homeDiv.style.display = "block";
+  const navBtns = document.querySelectorAll(".nav-btn");
+      for (const btn of navBtns) btn.classList.remove("active");
+      home.classList.add("active");
 })
 
 notes.addEventListener("click", () => {
@@ -107,6 +120,9 @@ notes.addEventListener("click", () => {
     }
   const notesDiv = document.querySelector(".notes-div");
   notesDiv.style.display = "flex";
+  const navBtns = document.querySelectorAll(".nav-btn");
+      for (const btn of navBtns) btn.classList.remove("active");
+      notes.classList.add("active");
 })
 
 low.addEventListener("click", () => {
