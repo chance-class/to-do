@@ -3,11 +3,11 @@
   display: grid;
   box-sizing: border-box;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: 80px 1fr;
   width: 1200px;
   height: 700px;
   background: rgb(217, 248, 238);
-  padding: 20px;
+  overflow: auto;
 }
 
 .container {
@@ -119,10 +119,11 @@ form {
 
 .l-col {
   padding-left: 50px;
+  background: red;
 }
 
 .r-col {
-  padding: 50px;
+  padding: 10px 50px;
 }
 
 li {
@@ -180,7 +181,7 @@ li {
     z-index: 9;
     position: absolute;
     left: 60%;
-    margin: 200px auto 20px -200px;
+    margin: 130px auto 20px -200px;
     font-size: 26px;
     border: 1px solid black;
     min-height: 400px;
@@ -209,7 +210,7 @@ li {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 25px;
-  height: 560px;
+  height: 650px;
   padding: 20px;
   background: rgb(230, 230, 174);
   overflow: auto; 
@@ -218,7 +219,9 @@ li {
   padding-right: 20px; */
 }
 
-
+.home-div {
+  overflow: auto;
+}
 
 .note-header {
   display: flex;
