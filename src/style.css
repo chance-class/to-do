@@ -176,6 +176,16 @@ li {
     text-align: left;
 }
 
+.pop-up-added-note {
+    z-index: 9;
+    position: absolute;
+    left: 60%;
+    margin: 200px auto 20px -200px;
+    font-size: 26px;
+    border: 1px solid black;
+    min-height: 400px;
+}
+
 .selected {
   border: 3px solid;
 }
@@ -183,6 +193,8 @@ li {
 .added-note {
   box-sizing: border-box;
   width: 240px;
+  height: 240px;
+  overflow: hidden;
   white-space: pre-wrap;
   background: lavender;
   padding: 0 10px;
@@ -192,12 +204,13 @@ li {
 }
 
 .notes-div {
+    position: relative;
     box-sizing: border-box;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 25px;
   height: 560px;
-  padding: 10px;
+  padding: 20px;
   background: rgb(230, 230, 174);
   overflow: auto; 
   /* column-count: 3;

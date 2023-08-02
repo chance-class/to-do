@@ -59,7 +59,13 @@ export const createTD = (name, details, duedate, priority) => {
   const children = search.children;
   for (let i=0; i < children.length; i++) {
     let child = children[i];
-    if (!(child.style.display === "none")) child.appendChild(li);
+    if (!(child.style.display === "none")) {
+      if (child.classList.contains("notes-div")) {
+        continue;
+      } else {
+        child.appendChild(li);
+      }
+    }
   }
   const homeDiv = document.querySelector(".home-div");
   if (homeDiv.style.display === "none") {
@@ -216,15 +222,39 @@ export const createNote = (name, details) => {
   noteName.textContent = name;
   noteName.style.fontWeight = "bold";
   noteHeader.appendChild(noteName);
-  const deleteNote = document.createElement("img");
-  deleteNote.src = trash;
-  deleteNote.setAttribute("height", "20px");
-  deleteNote.addEventListener("click", () => note.remove());
-  noteHeader.appendChild(deleteNote);
+  
   const noteDetails = document.createElement("p");
   noteDetails.textContent = details;
   note.appendChild(noteDetails);
   noteDiv.appendChild(note);
+  const notePopup = note.cloneNode(true);
+  notePopup.classList.add("pop-up-added-note");
+  notePopup.style.height = "auto";
+  notePopup.style.width = "400px";
+  notePopup.style.display = "none";
+  notePopup.style.background = "rgb(184, 182, 182)";
+  const content = document.querySelector(".content");
+  content.appendChild(notePopup);
+  const images = document.querySelectorAll(".pop-up-added-note img");
+  for (const image of images) {
+    image.remove();
+  }
+  note.addEventListener("click", () => {
+    notePopup.style.display = "block";
+    document.addEventListener("click", (e) => {
+        if ( !(note.contains(e.target)) && !(notePopup.contains(e.target))) {
+          notePopup.style.display = "none";
+        }
+    });
+  })
+  const deleteNote = document.createElement("img");
+  deleteNote.src = trash;
+  deleteNote.setAttribute("height", "20px");
+  deleteNote.addEventListener("click", () => {
+    notePopup.remove();
+    note.remove();
+  });
+  noteHeader.appendChild(deleteNote);
 }
 
 
