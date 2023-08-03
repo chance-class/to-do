@@ -8,10 +8,19 @@ export const createTD = (name, details, duedate, priority) => {
   li.appendChild(td);
   const tdName = document.createElement("p");
   tdName.textContent = name;
+  const container = document.createElement("div");
+  container.classList.add("container");
   const check = document.createElement("input");
   check.setAttribute("type", "checkbox");
-  check.addEventListener("click", () => tdName.classList.toggle("checked"));
-  td.appendChild(check);
+  container.appendChild(check);
+  const checkmark = document.createElement("span");
+  checkmark.classList.add("checkmark");
+  container.appendChild(checkmark);
+  td.appendChild(container);
+  checkmark.addEventListener("click", () => {
+    tdName.classList.toggle("checked");
+    checkmark.classList.toggle("checked");
+  })
   td.appendChild(tdName);
   const det = document.createElement("button");
   det.textContent = "Details";
