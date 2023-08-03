@@ -43,6 +43,7 @@ body {
   align-self: center;
   background-color: #c56876;
   color: white;
+  z-index: 2;
 }
 
 h2 {
@@ -70,7 +71,7 @@ p {
 .pop-up-note {
   display: none;
   width: 600px;
-  height: 240px;
+  height: 260px;
   background-color: rgb(238, 235, 235);
   z-index: 9;
   position: absolute;
@@ -80,7 +81,7 @@ p {
 }
 
 .pop-up-td {
-  height: 320px;
+  height: 350px;
   font-size: 18px;
 }
 
@@ -162,6 +163,7 @@ form {
 .proj-det {
   width: 100px;
   height: 30px;
+  font-size: 16px;
   border: 1px solid rgb(2, 146, 165);
   color: rgb(2, 146, 165);
   border-radius: 3px;
@@ -177,7 +179,8 @@ form {
   transition-duration: 0.3s;
 }
 
-.li-details, 
+.li-details,
+.proj-det,  
 .low, 
 .medium, 
 .high {
@@ -201,6 +204,7 @@ textarea {
   margin: 40px 0;
   height: 540px;
   overflow: auto;
+  background-color: rgb(247, 241, 241);
 }
 
 li {
@@ -238,7 +242,7 @@ li {
 .p-head {
   box-sizing: border-box;
   background-color: #c56876;
-  height: 40px;
+  height: 50px;
   padding: 7px;
   display: flex;
   align-content: center;
@@ -386,6 +390,7 @@ li {
 
 .checked {
   text-decoration: line-through;
+  color: gray;
 }
 
 .projects {
