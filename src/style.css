@@ -376,3 +376,9 @@ li {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+
+.close {
+  float: right;
+  padding:2px 5px;
+  cursor: pointer;
+}

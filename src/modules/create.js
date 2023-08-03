@@ -246,6 +246,14 @@ export const createNote = (name, details) => {
   noteDiv.appendChild(note);
   const notePopup = note.cloneNode(true);
   notePopup.classList.add("pop-up-added-note");
+  const x = document.createElement("span");
+  x.classList.add("close");
+  x.textContent = "X";
+  x.addEventListener("click", () => notePopup.style.display = "none");
+  const children = notePopup.children;
+  for (const child of children) {
+    if (child.classList.contains("note-header")) child.appendChild(x);
+  }
   notePopup.style.height = "auto";
   notePopup.style.width = "400px";
   notePopup.style.display = "none";
@@ -256,14 +264,7 @@ export const createNote = (name, details) => {
   for (const image of images) {
     image.remove();
   }
-  note.addEventListener("click", () => {
-    notePopup.style.display = "block";
-    document.addEventListener("click", (e) => {
-        if ( !(note.contains(e.target)) && !(notePopup.contains(e.target))) {
-          notePopup.style.display = "none";
-        }
-    });
-  })
+  note.addEventListener("click", () => notePopup.style.display = "block");
   const deleteNote = document.createElement("img");
   deleteNote.src = trash;
   deleteNote.setAttribute("height", "20px");
