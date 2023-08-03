@@ -90,6 +90,9 @@ form {
 .pop-up-select > button {
   background-color: rgb(238, 235, 235);
   margin: 5px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
 }
 
 form > button, 
@@ -97,6 +100,7 @@ form > div > button {
   background-color: rgb(2, 146, 165);
   color: white;
   border: none;
+  border-radius: 5px;
 }
 
 .pop-up-details {
@@ -139,10 +143,10 @@ form {
 }
 
 .bottom > button {
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
-  font-size: 30px;
+  width: 65px;
+  height: 65px;
+  border-radius: 40px;
+  font-size: 40px;
   background-color: #c56876;
   color: white;
 }
@@ -154,6 +158,8 @@ form {
   border: 1px solid rgb(2, 146, 165);
   color: rgb(2, 146, 165);
   border-radius: 3px;
+  transition-property: background-color color border;
+  transition-timing-function: ease-in-out;
 }
 
 .li-details:hover, 
@@ -162,6 +168,7 @@ form {
   background-color: rgb(2, 146, 165);
   color: white;
   border: 1px solid white;
+  transition-duration: 0.3s;
 }
 
 .li-details, 
@@ -438,12 +445,19 @@ li {
   cursor: pointer;
 }
 
+li, 
+.added-note:not(.pop-up-added-note) {
+    transition-property: box-shadow;
+    transition-timing-function: ease-in-out;
+}
+
 li:hover, 
 .added-note:hover:not(.pop-up-added-note) {
     box-shadow:
     0.4px 0.4px 0.5px rgba(0, 0, 0, 0.079),
     1.3px 1.3px 1.6px rgba(0, 0, 0, 0.119),
     6px 6px 7px rgba(0, 0, 0, 0.21);
+    transition-duration: 0.3s;
 }
 
 img:hover, 
