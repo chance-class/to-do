@@ -66,11 +66,17 @@ p {
 }
 
 .pop-up-td {
-  height: 310px;
+  height: 320px;
+  font-size: 18px;
 }
 
 form {
   padding: 10px;
+}
+
+input, 
+textarea {
+  font-size: 16px;
 }
 
 .add-proj, 
@@ -102,18 +108,6 @@ form > div > button {
   border: none;
   border-radius: 5px;
 }
-
-.pop-up-details {
-  display: none;
-  flex-direction: column;
-  flex: 1 1 auto;
-  gap: 10px;
-  width: 500px;
-  height: auto;
-  min-height: 100px;
-  background: teal;
-  padding: 10px;
-}
  
 form {
   display: flex;
@@ -122,12 +116,9 @@ form {
 
 .footer {
   display: flex;
+
   justify-content: space-between;
   align-items: end;
-}
-
-.bottom {
-  margin-top: 100px;
 }
 
 .top {
@@ -149,6 +140,7 @@ form {
   font-size: 40px;
   background-color: #c56876;
   color: white;
+  margin: 50px 0;
 }
 
 .li-details, 
@@ -164,7 +156,6 @@ form {
 
 .li-details:hover, 
 .proj-det:hover {
-  background-color: #0e88b8;
   background-color: rgb(2, 146, 165);
   color: white;
   border: 1px solid white;
@@ -185,6 +176,9 @@ textarea {
 .l-col {
   padding-left: 50px;
   background-color: rgb(238, 235, 235);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .search {
@@ -206,6 +200,10 @@ li {
   gap: 20px;
   padding: 10px 10px 10px 0;
   align-items: center;
+}
+
+.td-li > p {
+  font-size: 17px;
 }
 
 .proj-btn {
@@ -245,6 +243,19 @@ li {
     left: 45%;
     margin: 200px auto 20px -200px;
     text-align: left;
+    display: none;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 10px;
+  width: 500px;
+  height: auto;
+  min-height: 100px;
+  background: rgb(2, 146, 165);
+  padding: 10px;
+}
+
+.pop-up-details > div {
+  font-size: 18px;
 }
 
 .pop-up-added-note {
@@ -403,9 +414,9 @@ li {
     border-radius: 5px;
   }
   
-  /* On mouse-over, add a grey background color
+  /* On mouse-over, add a grey background color 
   .container:hover input ~ .checkmark {
-    background-color: #ccc;
+    background-color: rgb(211, 249, 253); 
   } */
   
   /* When the checkbox is checked, add a blue background */
