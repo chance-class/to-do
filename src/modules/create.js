@@ -252,6 +252,7 @@ export const createNote = (name, details) => {
   const x = document.createElement("span");
   x.classList.add("close");
   x.textContent = "X";
+  x.style.paddingTop = "12px";
   x.addEventListener("click", () => notePopup.style.display = "none");
   const children = notePopup.children;
   for (const child of children) {
@@ -270,6 +271,7 @@ export const createNote = (name, details) => {
   note.addEventListener("click", () => notePopup.style.display = "block");
   const deleteNote = document.createElement("img");
   deleteNote.src = trash;
+  deleteNote.style.paddingTop = "10px";
   deleteNote.setAttribute("height", "20px");
   deleteNote.addEventListener("click", () => {
     notePopup.remove();
