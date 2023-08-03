@@ -138,6 +138,9 @@ export const createProj = (title, details) => {
   newProj.textContent = `${title}`;
   newProj.classList.add("proj-btn");
   newProj.classList.add("nav-btn");
+  const navBtns = document.querySelectorAll(".nav-btn");
+  for (const btn of navBtns) btn.classList.remove("active");
+  newProj.classList.add("active");
   addedProjs.appendChild(newProj);
   const search = document.querySelector(".search");
   const children = search.children;
