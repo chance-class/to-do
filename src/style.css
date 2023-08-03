@@ -138,7 +138,7 @@ textarea {
 li {
   list-style-type: none;
   background-color: rgb(238, 235, 235);
-  margin-bottom: 10px;
+  margin: 0 10px 10px 0;
   padding-left: 10px;
 }
 
@@ -379,6 +379,20 @@ li {
 
 .close {
   float: right;
+  font-size: 20px;
   padding:2px 5px;
+  cursor: pointer;
+}
+
+li:hover, 
+.added-note:hover:not(.pop-up-added-note) {
+    box-shadow:
+    0.4px 0.4px 0.5px rgba(0, 0, 0, 0.079),
+    1.3px 1.3px 1.6px rgba(0, 0, 0, 0.119),
+    6px 6px 7px rgba(0, 0, 0, 0.21);
+}
+
+img:hover, 
+button:hover {
   cursor: pointer;
 }
