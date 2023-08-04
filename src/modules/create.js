@@ -171,7 +171,8 @@ export const createProj = (title, details) => {
   }
   const newDiv = document.createElement("div");
   const newName = new String(title);
-  const className = newName.replace(/\s+/g, '-').toLowerCase();
+  const newName2 = newName.replace(/\s+/g, '-').toLowerCase();
+  const className = newName2.replace(/'/,'');
   newDiv.classList.add(`${className}-div`);
   search.appendChild(newDiv);
   const det = document.createElement("button");
