@@ -1,5 +1,6 @@
 import './style.css';
 import { createTD, createProj, createNote } from './modules/create.js';
+import list from './images/white-list.png';
 
 createTD("Call Mom", "Give Mom a call back soon", "2023-07-29", "Low");
 createTD("Go to HEB", "Need to buy dog food", "2023-07-30", "Medium");
@@ -16,6 +17,12 @@ const notes = document.querySelector(".notes");
 const low = document.querySelector(".low");
 const medium = document.querySelector(".medium");
 const high = document.querySelector(".high");
+const header = document.querySelector(".header");
+const headerIcon = document.createElement("img");
+
+headerIcon.src = list;
+headerIcon.classList.add("header-icon");
+header.appendChild(headerIcon);
 
 document.addEventListener("click", (e) => {
   if (!(add.contains(e.target)) && !(popupSelect.contains(e.target)) && !(popupTD.contains(e.target)) && !(popupProj.contains(e.target)) && !(popupNote.contains(e.target))) {
