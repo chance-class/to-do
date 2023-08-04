@@ -89,6 +89,19 @@ export const createTD = (name, details, duedate, priority) => {
     const liHome = li.cloneNode(true);
     liHome.classList.add("li-home")
     homeDiv.appendChild(liHome);
+    const checkboxes = document.querySelectorAll(".li-home .container .checkmark");
+    const thisCheck = checkboxes[checkboxes.length - 1];
+    const homePs = document.querySelectorAll(".li-home p");
+    const thisP = homePs[homePs.length - 2];
+    thisCheck.addEventListener("click", () => {
+      if (thisCheck.classList.contains("checked")) {
+        thisCheck.classList.remove("checked");
+        thisP.classList.remove("checked");
+      } else {
+        thisCheck.classList.add("checked");
+        thisP.classList.add("checked");
+      }
+    })
     const detBtns = document.querySelectorAll(".li-home button");
     console.log(detBtns);
     const thisBtn = detBtns[detBtns.length - 1];
@@ -215,8 +228,6 @@ export const createProj = (title, details) => {
   })
   buttons.appendChild(projTrash);
   newProj.addEventListener("click", () => {
-    const notePopup = document.querySelector(".pop-up-added-note");
-    notePopup.style.display = "none";
     const search = document.querySelector(".search");
     const children = search.children;
     for (let i=0; i < children.length; i++) {
