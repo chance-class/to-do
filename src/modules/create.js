@@ -261,7 +261,6 @@ export const createNote = (name, details) => {
   notePopup.style.height = "auto";
   notePopup.style.width = "400px";
   notePopup.style.display = "none";
-  notePopup.style.background = "rgb(184, 182, 182)";
   const content = document.querySelector(".content");
   content.appendChild(notePopup);
   const images = document.querySelectorAll(".pop-up-added-note img");
