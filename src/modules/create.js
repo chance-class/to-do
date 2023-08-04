@@ -18,9 +18,21 @@ export const createTD = (name, details, duedate, priority) => {
   container.appendChild(checkmark);
   td.appendChild(container);
   checkmark.addEventListener("click", () => {
-    tdName.classList.toggle("checked");
-    checkmark.classList.toggle("checked");
-  })
+    const allPs = document.querySelector(".td-li p");
+    const allItems = document.querySelectorAll("li");
+        for (const item of allItems) {
+            item.classList.add("temp");
+            const tempPs = document.querySelectorAll(".temp p");
+            for (const p of tempPs) {
+              if (p.textContent === tdName.textContent) {
+                p.classList.toggle("checked");
+                const tempCheck = document.querySelector(".temp .container .checkmark");
+                tempCheck.classList.toggle("checked");
+            }
+          }
+          item.classList.remove("temp");
+        }
+      });
   td.appendChild(tdName);
   const det = document.createElement("button");
   det.textContent = "Details";
@@ -94,14 +106,21 @@ export const createTD = (name, details, duedate, priority) => {
     const homePs = document.querySelectorAll(".li-home p");
     const thisP = homePs[homePs.length - 2];
     thisCheck.addEventListener("click", () => {
-      if (thisCheck.classList.contains("checked")) {
-        thisCheck.classList.remove("checked");
-        thisP.classList.remove("checked");
-      } else {
-        thisCheck.classList.add("checked");
-        thisP.classList.add("checked");
-      }
-    })
+        const allPs = document.querySelector(".td-li p");
+        const allItems = document.querySelectorAll("li");
+            for (const item of allItems) {
+                item.classList.add("temp");
+                const tempPs = document.querySelectorAll(".temp p");
+                for (const p of tempPs) {
+                  if (p.textContent === thisP.textContent) {
+                    p.classList.toggle("checked");
+                    const tempCheck = document.querySelector(".temp .container .checkmark");
+                    tempCheck.classList.toggle("checked");
+                }
+              }
+              item.classList.remove("temp");
+            }
+          });
     const detBtns = document.querySelectorAll(".li-home button");
     console.log(detBtns);
     const thisBtn = detBtns[detBtns.length - 1];
