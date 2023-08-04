@@ -487,3 +487,15 @@ img:hover,
 button:hover {
   cursor: pointer;
 }
+
+.low-prio {
+  border-left: 5px solid green;
+}
+
+.med-prio {
+  border-left: 5px solid yellow;
+}
+
+.high-prio {
+  border-left: 5px solid red;
+}

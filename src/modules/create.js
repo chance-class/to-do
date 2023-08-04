@@ -48,6 +48,9 @@ export const createTD = (name, details, duedate, priority) => {
     const popupSelect = document.querySelector(".pop-up-select");
     popupSelect.style.display = "none";
   })
+  if (priority === "Low") li.classList.add("low-prio");
+  else if (priority === "Medium") li.classList.add("med-prio");
+  else if (priority === "High") li.classList.add("high-prio");
   td.appendChild(det);
   const tdDue = document.createElement("p");
   tdDue.textContent = duedate;
@@ -212,6 +215,8 @@ export const createProj = (title, details) => {
   })
   buttons.appendChild(projTrash);
   newProj.addEventListener("click", () => {
+    const notePopup = document.querySelector(".pop-up-added-note");
+    notePopup.style.display = "none";
     const search = document.querySelector(".search");
     const children = search.children;
     for (let i=0; i < children.length; i++) {
@@ -277,6 +282,13 @@ export const createNote = (name, details) => {
     note.remove();
   });
   noteHeader.appendChild(deleteNote);
+  const allBtns = document.querySelectorAll("button");
+  for (const btn of allBtns) {
+    document.addEventListener("click", (e) => {
+      if (btn.contains(e.target)) notePopup.style.display = "none";
+    })
+  }
+  
 }
 
 
