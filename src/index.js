@@ -32,7 +32,8 @@ h1.appendChild(headerIcon);
 const dropBtn = document.querySelector(".drop-btn");
 const menuImg = document.createElement("img");
 menuImg.src = menu;
-dropBtn.innerHTML = '<img src="../dist/aa19590f1a4648e34ffe.png" height="50px">';
+menuImg.style.height = "50px";
+dropBtn.appendChild(menuImg);
 
 document.addEventListener("click", (e) => {
   if (!(add.contains(e.target)) && !(navAdd.contains(e.target)) && !(popupSelect.contains(e.target)) && !(popupTD.contains(e.target)) && !(popupProj.contains(e.target)) && !(popupNote.contains(e.target))) {
