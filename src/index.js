@@ -16,6 +16,7 @@ const popupDetails = document.querySelector(".pop-up-details");
 const home = document.querySelector(".home");
 const navHome = document.querySelector(".nav-home");
 home.classList.add("active");
+navHome.classList.add("active");
 const notes = document.querySelector(".notes");
 const navNotes = document.querySelector(".nav-notes");
 const low = document.querySelector(".low");
@@ -118,6 +119,17 @@ noteForm.addEventListener("submit", (e) => {
   popupNote.style.display = "none";
   let allInputs = document.querySelectorAll('.input');
   allInputs.forEach(singleInput => singleInput.value = '');
+  const search = document.querySelector(".search");
+    const children = search.children;
+    for (let i=0; i < children.length; i++) {
+      let child = children[i];
+      if (!(child.style.display === "none")) child.style.display = "none";
+    }
+  const notesDiv = document.querySelector(".notes-div");
+  notesDiv.style.display = "flex";
+  const navBtns = document.querySelectorAll(".nav-btn");
+      for (const btn of navBtns) btn.classList.remove("active");
+      notes.classList.add("active");
 })
 
 home.addEventListener("click", () => {

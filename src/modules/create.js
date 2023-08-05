@@ -159,10 +159,17 @@ export const createProj = (title, details) => {
   newProj.textContent = `${title}`;
   newProj.classList.add("proj-btn");
   newProj.classList.add("nav-btn");
+  const newNavProj = document.createElement("button");
+  newNavProj.classList.add("nav-proj-btn");
+  newNavProj.classList.add("nav-btn");
+  newNavProj.textContent = `${title}`;
   const navBtns = document.querySelectorAll(".nav-btn");
   for (const btn of navBtns) btn.classList.remove("active");
   newProj.classList.add("active");
+  newNavProj.classList.add("active");
   addedProjs.appendChild(newProj);
+  const addedNavProjs = document.querySelector(".nav-added-projs");
+  addedNavProjs.appendChild(newNavProj);
   const search = document.querySelector(".search");
   const children = search.children;
   for (let i=0; i < children.length; i++) {
@@ -231,6 +238,7 @@ export const createProj = (title, details) => {
     const home = document.querySelector(".home-div");
     home.style.display = "block";
     newProj.remove();
+    newNavProj.remove();
   })
   buttons.appendChild(projTrash);
   newProj.addEventListener("click", () => {
@@ -245,6 +253,20 @@ export const createProj = (title, details) => {
       const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       newProj.classList.add("active");
+    }
+  })
+  newNavProj.addEventListener("click", () => {
+    const search = document.querySelector(".search");
+    const children = search.children;
+    for (let i=0; i < children.length; i++) {
+      let child = children[i];
+      if (!(child.style.display === "none")) child.style.display = "none";
+      if (child.classList.contains(`${className}-div`)) {
+        child.style.display = "block";
+      }
+      const navBtns = document.querySelectorAll(".nav-btn");
+      for (const btn of navBtns) btn.classList.remove("active");
+      newNavProj.classList.add("active");
     }
   })
 }
