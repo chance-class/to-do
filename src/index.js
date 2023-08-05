@@ -7,14 +7,17 @@ createTD("Call Mom", "Give Mom a call back soon", "2023-07-29", "Low");
 createTD("Go to HEB", "Need to buy dog food", "2023-07-30", "Medium");
 
 const add = document.querySelector(".add-btn");
+const navAdd = document.querySelector(".nav-add");
 const popupSelect = document.querySelector(".pop-up-select");
 const popupTD = document.querySelector(".pop-up-td");
 const popupProj = document.querySelector(".pop-up-proj");
 const popupNote = document.querySelector(".pop-up-note");
 const popupDetails = document.querySelector(".pop-up-details");
 const home = document.querySelector(".home");
+const navHome = document.querySelector(".nav-home");
 home.classList.add("active");
 const notes = document.querySelector(".notes");
+const navNotes = document.querySelector(".nav-notes");
 const low = document.querySelector(".low");
 const medium = document.querySelector(".medium");
 const high = document.querySelector(".high");
@@ -31,7 +34,7 @@ menuImg.src = menu;
 dropBtn.innerHTML = '<img src="../dist/aa19590f1a4648e34ffe.png" height="30px">';
 
 document.addEventListener("click", (e) => {
-  if (!(add.contains(e.target)) && !(popupSelect.contains(e.target)) && !(popupTD.contains(e.target)) && !(popupProj.contains(e.target)) && !(popupNote.contains(e.target))) {
+  if (!(add.contains(e.target)) && !(navAdd.contains(e.target)) && !(popupSelect.contains(e.target)) && !(popupTD.contains(e.target)) && !(popupProj.contains(e.target)) && !(popupNote.contains(e.target))) {
     popupSelect.style.display = "none";
     popupTD.style.display = "none";
     popupProj.style.display = "none";
@@ -46,6 +49,13 @@ add.addEventListener("click", () => {
   popupTD.style.display = "none";
   popupDetails.style.display = "none";
 })
+navAdd.addEventListener("click", () => {
+    popupSelect.style.display = "grid";
+    popupProj.style.display = "none";
+    popupNote.style.display = "none";
+    popupTD.style.display = "none";
+    popupDetails.style.display = "none";
+  })
 const newTD = document.querySelector(".new-td");
 newTD.addEventListener("click", () => {
   popupTD.style.display = "grid";
@@ -124,6 +134,20 @@ home.addEventListener("click", () => {
       home.classList.add("active");
 })
 
+navHome.addEventListener("click", () => {
+    const search = document.querySelector(".search");
+    const children = search.children;
+    for (let i=0; i < children.length; i++) {
+      let child = children[i];
+      if (!(child.style.display === "none")) child.style.display = "none";
+    }
+    const homeDiv = document.querySelector(".home-div");
+    homeDiv.style.display = "block";
+    const navBtns = document.querySelectorAll(".nav-btn");
+        for (const btn of navBtns) btn.classList.remove("active");
+        navHome.classList.add("active");
+  })
+
 notes.addEventListener("click", () => {
     const search = document.querySelector(".search");
     const children = search.children;
@@ -136,6 +160,20 @@ notes.addEventListener("click", () => {
   const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       notes.classList.add("active");
+})
+
+navNotes.addEventListener("click", () => {
+    const search = document.querySelector(".search");
+    const children = search.children;
+    for (let i=0; i < children.length; i++) {
+      let child = children[i];
+      if (!(child.style.display === "none")) child.style.display = "none";
+    }
+  const notesDiv = document.querySelector(".notes-div");
+  notesDiv.style.display = "flex";
+  const navBtns = document.querySelectorAll(".nav-btn");
+      for (const btn of navBtns) btn.classList.remove("active");
+      navNotes.classList.add("active");
 })
 
 low.addEventListener("click", () => {
