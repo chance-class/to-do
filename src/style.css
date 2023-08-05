@@ -409,7 +409,8 @@ li {
   color: gray;
 }
 
-.projects {
+.projects, 
+.nav-projects {
   font-size: 24px;
 }
 
@@ -529,7 +530,7 @@ button:hover {
 }
 
 .dropdown {
-  min-width: 150px;
+  min-width: 175px;
   padding: 10px;
   background-color: #c56876;
   display: none;
