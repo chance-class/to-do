@@ -589,6 +589,35 @@ button:hover {
 
 
 @media screen and (max-width: 1200px) {
+  .added-note {
+  height: 350px;
+  width: 350px;
+  overflow: hidden;
+  flex: 1 1 auto;
+  max-width: 400px; 
+  }
+
+  .delete-note {
+    height: 30px;
+  }
+
+  .added-note > p, 
+  .added-note > div > p {
+    font-size: 24px;
+  }
+
+  .pop-up-added-note {
+    min-width: 550px;
+    left: 25%;
+    margin: 130px auto 20px 0;
+  }
+
+  .pop-up-added-note > p, 
+  .pop-up-added-note > div > p, 
+  .close {
+    font-size: 36px;
+  }
+  
   .l-col {
     display: none;
   }

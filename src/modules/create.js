@@ -319,6 +319,7 @@ export const createNote = (name, details) => {
   note.addEventListener("click", () => notePopup.style.display = "block");
   const deleteNote = document.createElement("img");
   deleteNote.src = trash;
+  deleteNote.classList.add("delete-note");
   deleteNote.style.paddingTop = "10px";
   deleteNote.setAttribute("height", "20px");
   deleteNote.addEventListener("click", () => {
