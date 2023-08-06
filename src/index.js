@@ -3,6 +3,7 @@ import { createTD, createProj, createNote } from './modules/create.js';
 import list from './images/white-list.png';
 import menu from './images/menu.png';
 import addImg from './images/add.png';
+import addRose from './images/add-rose.png';
 
 createTD("Call Mom", "Give Mom a call back soon", "2023-07-29", "Low");
 createTD("Go to HEB", "Need to buy dog food", "2023-07-30", "Medium");
@@ -29,6 +30,10 @@ const headerIcon = document.createElement("img");
 headerIcon.src = list;
 headerIcon.classList.add("header-icon");
 h1.appendChild(headerIcon);
+
+const addIconMain = document.createElement("img");
+addIconMain.src = addRose;
+add.appendChild(addIconMain);
 
 const addIcon = document.createElement("img");
 addIcon.src = addImg;
