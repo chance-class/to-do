@@ -32,7 +32,6 @@ h1.appendChild(headerIcon);
 const dropBtn = document.querySelector(".drop-btn");
 const menuImg = document.createElement("img");
 menuImg.src = menu;
-menuImg.style.height = "50px";
 dropBtn.appendChild(menuImg);
 
 document.addEventListener("click", (e) => {

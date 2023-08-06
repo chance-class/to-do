@@ -51,6 +51,7 @@ export const createTD = (name, details, duedate, priority) => {
   td.appendChild(det);
   const tdDue = document.createElement("p");
   tdDue.textContent = duedate;
+  tdDue.classList.add("td-due");
   td.appendChild(tdDue);
   const tdTrash = document.createElement("img");
   tdTrash.src = trash;

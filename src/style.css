@@ -503,6 +503,7 @@ button:hover {
 .header-icon {
   margin-bottom: -15px;
   padding-left: 10px;
+  height: 50px;
 }
 
 .low-prio {
@@ -530,7 +531,7 @@ button:hover {
 }
 
 .dropdown {
-  min-width: 175px;
+  min-width: 350px;
   padding: 10px;
   background-color: #c56876;
   display: none;
@@ -543,6 +544,10 @@ button:hover {
   margin-right: 50px;
   background: transparent;
   border: none;
+}
+
+.td-due {
+  white-space: nowrap;
 }
 
 @media screen and (max-width: 1500px) {
@@ -579,7 +584,7 @@ button:hover {
 
   .content {
     grid-template-columns: 1fr;
-    grid-template-rows: 80px 1fr;
+    grid-template-rows: 150px 1fr;
   }
 
   .dropdown {
@@ -589,4 +594,36 @@ button:hover {
 .navbar:hover .dropdown {
   display: block;
 }
+
+.nav-btn {
+  font-size: 44px;
+}
+
+.nav-projects {
+  font-size: 42px;
+}
+
+h1 {
+  font-size: 60px;
+  margin: 0 auto 0 0;
+}
+
+.header-icon {
+  height: 80px;
+}
+
+.td-li > p {
+  font-size: 30px;
+}
+
+.td-li img {
+  height: 50px;
+}
+
+.li-details {
+  height: 48px;
+  min-width: 180px;
+  font-size: 28px;
+}
+
 }
