@@ -607,15 +607,15 @@ button:hover {
   }
 
   .pop-up-added-note {
-    min-width: 550px;
-    left: 25%;
+    min-width: 575px;
+    left: 20%;
     margin: 130px auto 20px 0;
   }
 
   .pop-up-added-note > p, 
   .pop-up-added-note > div > p, 
   .close {
-    font-size: 36px;
+    font-size: 42px;
   }
   
   .l-col {
