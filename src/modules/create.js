@@ -177,6 +177,8 @@ export const createProj = (title, details) => {
     let child = children[i];
     if (!(child.style.display === "none")) child.style.display = "none";
   }
+  const rColHeader = document.querySelector(".r-col-header");
+  rColHeader.textContent = `${title}`;
   const newDiv = document.createElement("div");
   const newName = new String(title);
   const newName2 = newName.replace(/\s+/g, '-').toLowerCase();
@@ -250,6 +252,7 @@ export const createProj = (title, details) => {
       if (!(child.style.display === "none")) child.style.display = "none";
       if (child.classList.contains(`${className}-div`)) {
         child.style.display = "block";
+        rColHeader.textContent = `${title}`;
       }
       const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
@@ -264,6 +267,7 @@ export const createProj = (title, details) => {
       if (!(child.style.display === "none")) child.style.display = "none";
       if (child.classList.contains(`${className}-div`)) {
         child.style.display = "block";
+        rColHeader.textContent = `${title}`;
       }
       const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");

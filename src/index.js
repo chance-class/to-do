@@ -17,6 +17,7 @@ const home = document.querySelector(".home");
 const navHome = document.querySelector(".nav-home");
 home.classList.add("active");
 navHome.classList.add("active");
+const rColHeader = document.querySelector(".r-col-header");
 const notes = document.querySelector(".notes");
 const navNotes = document.querySelector(".nav-notes");
 const low = document.querySelector(".low");
@@ -127,6 +128,7 @@ noteForm.addEventListener("submit", (e) => {
     }
   const notesDiv = document.querySelector(".notes-div");
   notesDiv.style.display = "flex";
+  rColHeader.textContent = "Notes";
   const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       notes.classList.add("active");
@@ -141,6 +143,7 @@ home.addEventListener("click", () => {
   }
   const homeDiv = document.querySelector(".home-div");
   homeDiv.style.display = "block";
+  rColHeader.textContent = "Home";
   const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       home.classList.add("active");
@@ -155,6 +158,7 @@ navHome.addEventListener("click", () => {
     }
     const homeDiv = document.querySelector(".home-div");
     homeDiv.style.display = "block";
+    rColHeader.textContent = "Home";
     const navBtns = document.querySelectorAll(".nav-btn");
         for (const btn of navBtns) btn.classList.remove("active");
         navHome.classList.add("active");
@@ -169,6 +173,7 @@ notes.addEventListener("click", () => {
     }
   const notesDiv = document.querySelector(".notes-div");
   notesDiv.style.display = "flex";
+  rColHeader.textContent = "Notes";
   const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       notes.classList.add("active");
@@ -183,6 +188,7 @@ navNotes.addEventListener("click", () => {
     }
   const notesDiv = document.querySelector(".notes-div");
   notesDiv.style.display = "flex";
+  rColHeader.textContent = "Notes";
   const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       navNotes.classList.add("active");

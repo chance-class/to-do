@@ -550,6 +550,11 @@ button:hover {
   white-space: nowrap;
 }
 
+.r-col-header {
+  display: none;
+  text-align: center;
+}
+
 @media screen and (max-width: 1500px) {
   .content {
     width: 100%;
@@ -597,10 +602,12 @@ button:hover {
 
 .nav-btn {
   font-size: 44px;
+  color: white;
 }
 
 .nav-projects {
   font-size: 42px;
+  color: white;
 }
 
 h1 {
@@ -707,6 +714,11 @@ textarea {
 
 form {
   padding: 20px;
+}
+
+.r-col-header {
+  display: block;
+  font-size: 50px;
 }
 
 }
