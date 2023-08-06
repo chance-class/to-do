@@ -616,11 +616,13 @@ h1 {
   font-size: 30px;
 }
 
-.td-li img {
-  height: 50px;
+.td-li img, 
+.proj-btns img {
+  height: 40px;
 }
 
-.li-details {
+.li-details, 
+.proj-det {
   height: 48px;
   min-width: 180px;
   font-size: 28px;
@@ -667,8 +669,14 @@ textarea {
 .add-proj, 
 .add-note-btn {
   height: 55px;
-  width: 145px;
+  width: 160px;
   font-size: 20px;
+}
+
+#close-details {
+  height: 45px;
+  width: 120px;
+  font-size: 28px;
 }
 
 .pop-up-td {
@@ -682,6 +690,19 @@ textarea {
   width: 750px;
   height: 500px;
   left: 35%;
+}
+
+.pop-up-details {
+  width: 750px;
+  left: 35%;
+}
+
+.pop-up-details > div:not(#pop-title) {
+  font-size: 28px;
+}
+
+#pop-title {
+  font-size: 34px;
 }
 
 form {
