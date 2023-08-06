@@ -2,12 +2,12 @@ import './style.css';
 import { createTD, createProj, createNote } from './modules/create.js';
 import list from './images/white-list.png';
 import menu from './images/menu.png';
+import addImg from './images/add.png';
 
 createTD("Call Mom", "Give Mom a call back soon", "2023-07-29", "Low");
 createTD("Go to HEB", "Need to buy dog food", "2023-07-30", "Medium");
 
 const add = document.querySelector(".add-btn");
-const navAdd = document.querySelector(".nav-add");
 const popupSelect = document.querySelector(".pop-up-select");
 const popupTD = document.querySelector(".pop-up-td");
 const popupProj = document.querySelector(".pop-up-proj");
@@ -24,11 +24,19 @@ const low = document.querySelector(".low");
 const medium = document.querySelector(".medium");
 const high = document.querySelector(".high");
 const h1 = document.querySelector("h1");
-const headerIcon = document.createElement("img");
 
+const headerIcon = document.createElement("img");
 headerIcon.src = list;
 headerIcon.classList.add("header-icon");
 h1.appendChild(headerIcon);
+
+const addIcon = document.createElement("img");
+addIcon.src = addImg;
+addIcon.classList.add("nav-add");
+addIcon.classList.add("nav-btn");
+const header = document.querySelector(".header");
+const navbar = document.querySelector(".navbar");
+header.insertBefore(addIcon, navbar);
 
 const dropBtn = document.querySelector(".drop-btn");
 const menuImg = document.createElement("img");
@@ -36,7 +44,7 @@ menuImg.src = menu;
 dropBtn.appendChild(menuImg);
 
 document.addEventListener("click", (e) => {
-  if (!(add.contains(e.target)) && !(navAdd.contains(e.target)) && !(popupSelect.contains(e.target)) && !(popupTD.contains(e.target)) && !(popupProj.contains(e.target)) && !(popupNote.contains(e.target))) {
+  if (!(add.contains(e.target)) && !(addIcon.contains(e.target)) && !(popupSelect.contains(e.target)) && !(popupTD.contains(e.target)) && !(popupProj.contains(e.target)) && !(popupNote.contains(e.target))) {
     popupSelect.style.display = "none";
     popupTD.style.display = "none";
     popupProj.style.display = "none";
@@ -51,7 +59,7 @@ add.addEventListener("click", () => {
   popupTD.style.display = "none";
   popupDetails.style.display = "none";
 })
-navAdd.addEventListener("click", () => {
+addIcon.addEventListener("click", () => {
     popupSelect.style.display = "grid";
     popupProj.style.display = "none";
     popupNote.style.display = "none";
