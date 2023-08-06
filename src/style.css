@@ -626,4 +626,66 @@ h1 {
   font-size: 28px;
 }
 
+h2 {
+  font-size: 35px;
+}
+
+.pop-up-select > button {
+  height: 55px;
+  width: 200px;
+  font-size: 30px;
+}
+
+.p-head {
+  height: 70px;
+}
+
+input, 
+textarea, 
+.due > p, 
+.priority > p {
+  font-size: 24px;
+}
+
+textarea {
+  height: 220px;
+}
+
+.low, 
+.medium, 
+.high {
+  height: 30px;
+  width: 70px;
+  font-size: 18px;
+}
+
+.medium {
+  width: 105px;
+}
+
+.add-td, 
+.add-proj, 
+.add-note-btn {
+  height: 55px;
+  width: 145px;
+  font-size: 20px;
+}
+
+.pop-up-td {
+  width: 750px;
+  height: 600px;
+  left: 35%;
+}
+
+.pop-up-proj, 
+.pop-up-note {
+  width: 750px;
+  height: 500px;
+  left: 35%;
+}
+
+form {
+  padding: 20px;
+}
+
 }
