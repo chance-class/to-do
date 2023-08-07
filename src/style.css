@@ -590,7 +590,7 @@ button:hover {
 
 @media screen and (max-width: 1200px) {
   .added-note {
-  height: 350px;
+  height: 400px;
   width: 350px;
   overflow: hidden;
   flex: 1 1 auto;
@@ -598,12 +598,12 @@ button:hover {
   }
 
   .delete-note {
-    height: 30px;
+    height: 40px;
   }
 
   .added-note > p, 
   .added-note > div > p {
-    font-size: 24px;
+    font-size: 36px;
   }
 
   .pop-up-added-note {
@@ -615,7 +615,7 @@ button:hover {
   .pop-up-added-note > p, 
   .pop-up-added-note > div > p, 
   .close {
-    font-size: 42px;
+    font-size: 46px;
   }
   
   .l-col {
@@ -740,15 +740,15 @@ textarea {
 
 .pop-up-details {
   width: 750px;
-  left: 35%;
+  left: 30%;
 }
 
 .pop-up-details > div:not(#pop-title) {
-  font-size: 28px;
+  font-size: 32px;
 }
 
 #pop-title {
-  font-size: 34px;
+  font-size: 36px;
 }
 
 form {
