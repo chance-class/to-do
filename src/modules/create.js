@@ -335,11 +335,11 @@ export const createNote = (name, details) => {
   for (const btn of allBtns) {
     document.addEventListener("click", (e) => {
       if (btn.contains(e.target)) notePopup.style.display = "none";
-      if (navAdd.contains(e.target)) notePopup.style.display = "none";
-      if (dropBtn.contains(e.target)) notePopup.style.display = "none";
     })
   }
-  
+  document.addEventListener("mouseover", (e) => {
+    if (navAdd.contains(e.target) || dropBtn.contains(e.target)) notePopup.style.display = "none";
+  })
 }
 
 
