@@ -764,4 +764,8 @@ form {
   display: block;
 }
 
+.header-icon {
+  margin-bottom: -20px;
+}
+
 }
