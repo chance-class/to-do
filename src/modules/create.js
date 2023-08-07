@@ -240,6 +240,8 @@ export const createProj = (title, details) => {
     newDiv.remove();
     const home = document.querySelector(".home-div");
     home.style.display = "block";
+    const header = document.querySelector(".r-col-header");
+    header.textContent = "Home";
     newProj.remove();
     newNavProj.remove();
   })
