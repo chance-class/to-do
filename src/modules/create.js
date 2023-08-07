@@ -330,9 +330,13 @@ export const createNote = (name, details) => {
   });
   noteHeader.appendChild(deleteNote);
   const allBtns = document.querySelectorAll("button");
+  const navAdd = document.querySelector(".nav-add");
+  const navbar = document.querySelector(".navbar");
   for (const btn of allBtns) {
     document.addEventListener("click", (e) => {
       if (btn.contains(e.target)) notePopup.style.display = "none";
+      if (navAdd.contains(e.target)) notePopup.style.display = "none";
+      if (navbar.contains(e.target)) notePopup.style.display = "none";
     })
   }
   
