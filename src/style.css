@@ -772,4 +772,19 @@ form {
   height: 80vh;
 }
 
+.checkmark {
+  top: -12px;
+  left: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.container .checkmark:after {
+  left: 7px;
+  top: 0;
+  width: 10px;
+  height: 20px;
+  border-width: 0 5px 5px 0;
+}
+
 }
