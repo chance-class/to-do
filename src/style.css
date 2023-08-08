@@ -768,4 +768,8 @@ form {
   margin-bottom: -20px;
 }
 
+.search {
+  height: 80vh;
+}
+
 }
