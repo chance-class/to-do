@@ -357,14 +357,15 @@ li {
   box-sizing: border-box;
   flex-direction: column;
   flex-wrap: wrap;
-  margin: 0 20px;
+  margin: 0;
   row-gap: 30px;
   column-gap: 40px;
   height: 540px;
+  width: 100%;
+  overflow: auto;
   background: rgb(230, 230, 174);
   background-color: rgb(247, 241, 241);
   column-count: 3;
-  max-width: 920px;
   /*padding-right: 20px; */
 }
 
@@ -585,6 +586,11 @@ button:hover {
 
   .added-note {
     max-width: 315px;
+  }
+
+  .search, 
+  .notes-div {
+    height: 640px;
   }
 }
 
