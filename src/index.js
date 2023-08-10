@@ -7,6 +7,8 @@ import addRose from './images/add-rose.png';
 
 createTD("Call Mom", "Give Mom a call back soon", "2023-07-29", "Low");
 createTD("Go to HEB", "Need to buy dog food", "2023-07-30", "Medium");
+createNote("Editable text", "To edit your note, all you need to do is click inside the note and you can edit directly");
+createNote("New note goes first", "Each new note is added in front of the previous note, allowing you to keep tabs on what is most recent");
 
 const add = document.querySelector(".add-btn");
 const popupSelect = document.querySelector(".pop-up-select");
