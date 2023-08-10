@@ -53,14 +53,18 @@ const menuImg = document.createElement("img");
 menuImg.src = menu;
 dropBtn.appendChild(menuImg);
 
+const closeTd = document.querySelector(".close-td");
+closeTd.addEventListener("click", () => popupTD.style.display = "none");
+
+const closeProj = document.querySelector(".close-proj");
+closeProj.addEventListener("click", () => popupProj.style.display = "none");
+
+const closeNote = document.querySelector(".close-note");
+closeNote.addEventListener("click", () => popupNote.style.display = "none");
+
 document.addEventListener("click", (e) => {
-  if (!(add.contains(e.target)) && !(addIcon.contains(e.target)) && !(popupSelect.contains(e.target)) && !(popupTD.contains(e.target)) && !(popupProj.contains(e.target)) && !(popupNote.contains(e.target))) {
-    popupSelect.style.display = "none";
-    popupTD.style.display = "none";
-    popupProj.style.display = "none";
-    popupNote.style.display = "none";
-  }
-})
+  if (!(add.contains(e.target)) && !(addIcon.contains(e.target)) && !(popupSelect.contains(e.target))) popupSelect.style.display = "none";
+});
 
 add.addEventListener("click", () => {
   popupSelect.style.display = "grid";

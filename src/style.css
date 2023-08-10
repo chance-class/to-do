@@ -332,6 +332,16 @@ li {
   font-size: 16px;
 }
 
+.close-td, 
+.close-proj, 
+.close-note {
+  margin-left: auto;
+  font-weight: 900;
+  cursor: pointer;
+  font-size: 26px;
+  padding-right: 10px;
+}
+
 .added-note {
   box-sizing: border-box;
   width: 247px;
