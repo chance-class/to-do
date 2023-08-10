@@ -345,6 +345,7 @@ li {
   white-space: pre-wrap;
   background-color: rgb(238, 235, 235);
   padding: 0 10px;
+  font-size: 20px;
   /*min-height: 247px;
    display: inline-block;
   margin: 0 1em 1em;

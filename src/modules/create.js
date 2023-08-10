@@ -340,7 +340,7 @@ export const createNote = (name, details) => {
   deleteNote.src = trash;
   deleteNote.classList.add("delete-note");
   deleteNote.style.paddingTop = "10px";
-  deleteNote.setAttribute("height", "20px");
+  deleteNote.setAttribute("height", "24px");
   deleteNote.addEventListener("click", () => note.remove());
   // noteHeader.appendChild(editNote);
   noteHeader.appendChild(deleteNote);
