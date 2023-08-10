@@ -1,5 +1,6 @@
 
 import trash from '../images/trash.svg';
+import edit from '../images/edit.svg';
 
 export const createTD = (name, details, duedate, priority) => {
   const li = document.createElement("li");
@@ -292,54 +293,69 @@ export const createNote = (name, details) => {
   const noteName = document.createElement("p");
   noteName.textContent = name;
   noteName.style.fontWeight = "bold";
+  noteName.style.marginRight = "auto";
+  noteName.setAttribute("contentEditable", true);
   noteHeader.appendChild(noteName);
   
   const noteDetails = document.createElement("p");
   noteDetails.textContent = details;
+  noteDetails.setAttribute("contentEditable", true);
   note.appendChild(noteDetails);
   noteDiv.appendChild(note);
-  const notePopup = note.cloneNode(true);
-  notePopup.classList.add("pop-up-added-note");
-  const x = document.createElement("span");
-  x.classList.add("close");
-  x.textContent = "X";
-  x.style.paddingTop = "12px";
-  x.addEventListener("click", () => notePopup.style.display = "none");
-  const children = notePopup.children;
-  for (const child of children) {
-    if (child.classList.contains("note-header")) child.appendChild(x);
-  }
-  notePopup.style.height = "auto";
-  notePopup.style.width = "400px";
-  notePopup.style.display = "none";
-  const content = document.querySelector(".content");
-  content.appendChild(notePopup);
-  const images = document.querySelectorAll(".pop-up-added-note img");
-  for (const image of images) {
-    image.remove();
-  }
-  note.addEventListener("click", () => notePopup.style.display = "block");
+  // const notePopup = note.cloneNode(true);
+  // notePopup.classList.add("pop-up-added-note");
+  // const x = document.createElement("span");
+  // x.classList.add("close");
+  // x.textContent = "X";
+  // x.style.paddingTop = "12px";
+  // x.addEventListener("click", () => notePopup.style.display = "none");
+  // const children = notePopup.children;
+  // for (const child of children) {
+  //   if (child.classList.contains("note-header")) child.appendChild(x);
+  // }
+  // notePopup.style.height = "auto";
+  // notePopup.style.width = "400px";
+  // notePopup.style.display = "none";
+  // const content = document.querySelector(".content");
+  // content.appendChild(notePopup);
+  // const images = document.querySelectorAll(".pop-up-added-note img");
+  // for (const image of images) {
+  //   image.remove();
+  // }
+  // const editNote = document.createElement("img");
+  // editNote.src = edit;
+  // editNote.classList.add("edit-note");
+  // editNote.style.paddingTop = "10px";
+  // editNote.setAttribute("height", "20px");
+  // const noteForm = document.querySelector(".pop-up-note");
+  // const noteFormTitle = document.querySelector("#title-note");
+  // const noteFormDetails = document.querySelector("#details-note");
+  // editNote.addEventListener("click", () => {
+  //   noteForm.style.display = "grid";
+  //   noteFormTitle.value = `${name}`;
+  //   noteFormDetails.value = `${details}`;
+  //   note.remove();
+  // })
   const deleteNote = document.createElement("img");
   deleteNote.src = trash;
   deleteNote.classList.add("delete-note");
   deleteNote.style.paddingTop = "10px";
   deleteNote.setAttribute("height", "20px");
-  deleteNote.addEventListener("click", () => {
-    notePopup.remove();
-    note.remove();
-  });
+  deleteNote.addEventListener("click", () => note.remove());
+  // noteHeader.appendChild(editNote);
   noteHeader.appendChild(deleteNote);
-  const allBtns = document.querySelectorAll("button");
-  const navAdd = document.querySelector(".nav-add");
-  const dropBtn = document.querySelector(".drop-btn");
-  for (const btn of allBtns) {
-    document.addEventListener("click", (e) => {
-      if (btn.contains(e.target)) notePopup.style.display = "none";
-    })
-  }
-  document.addEventListener("mouseover", (e) => {
-    if (navAdd.contains(e.target) || dropBtn.contains(e.target)) notePopup.style.display = "none";
-  })
+  // noteDetails.addEventListener("click", () => notePopup.style.display = "block");
+  // const allBtns = document.querySelectorAll("button");
+  // const navAdd = document.querySelector(".nav-add");
+  // const dropBtn = document.querySelector(".drop-btn");
+  // for (const btn of allBtns) {
+  //   document.addEventListener("click", (e) => {
+  //     if (btn.contains(e.target)) notePopup.style.display = "none";
+  //   })
+  // }
+  // document.addEventListener("mouseover", (e) => {
+  //   if (navAdd.contains(e.target) || dropBtn.contains(e.target)) notePopup.style.display = "none";
+  // })
 }
 
 

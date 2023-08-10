@@ -53,7 +53,7 @@ document.addEventListener("click", (e) => {
     popupSelect.style.display = "none";
     popupTD.style.display = "none";
     popupProj.style.display = "none";
-    popupNote.style.display = "none";
+   // popupNote.style.display = "none";
   }
 })
 

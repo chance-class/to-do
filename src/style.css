@@ -293,7 +293,7 @@ li {
   font-size: 18px;
 }
 
-.pop-up-added-note {
+/*.pop-up-added-note {
     z-index: 9;
     position: absolute;
     left: 60%;
@@ -302,7 +302,7 @@ li {
     border: 1px solid black;
     min-height: 400px;
     background-color: rgb(133, 185, 192);
-}
+}*/
 
 .low {
   background: rgb(166, 248, 166);
@@ -342,12 +342,11 @@ li {
 .added-note {
   box-sizing: border-box;
   width: 247px;
-  height: 247px;
-  overflow: hidden;
   white-space: pre-wrap;
   background-color: rgb(238, 235, 235);
   padding: 0 10px;
-  /* display: inline-block;
+  /*min-height: 247px;
+   display: inline-block;
   margin: 0 1em 1em;
   width: 95%; */
 }
@@ -355,17 +354,18 @@ li {
 .notes-div {
     position: relative;
     box-sizing: border-box;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   padding: 0 20px;
   row-gap: 30px;
   column-gap: 40px;
-  min-height: 540px;
+  max-height: 540px;
+  max-width: 800px;
   background: rgb(230, 230, 174);
   background-color: rgb(247, 241, 241);
-  /* column-count: 3;
+  column-count: 3;
   max-width: 920px;
-  padding-right: 20px; */
+  /*padding-right: 20px; */
 }
 
 .home-div {
@@ -374,8 +374,11 @@ li {
 
 .note-header {
   display: flex;
-  justify-content: space-between;
-  align-items: start;
+  gap: 15px;
+}
+
+[contenteditable] {
+  outline: 0px solid transparent;
 }
 
 #close-details {
@@ -421,7 +424,7 @@ li {
 .container {
     display: block;
     position: relative;
-    padding-left: 35px;
+    padding-left: 25px;
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;
@@ -485,13 +488,13 @@ li {
 }
 
 li, 
-.added-note:not(.pop-up-added-note) {
+.added-note {
     transition-property: box-shadow;
     transition-timing-function: ease-in-out;
 }
 
 li:hover, 
-.added-note:hover:not(.pop-up-added-note) {
+.added-note:hover {
     box-shadow:
     0.4px 0.4px 0.5px rgba(0, 0, 0, 0.079),
     1.3px 1.3px 1.6px rgba(0, 0, 0, 0.119),
@@ -590,9 +593,7 @@ button:hover {
 
 @media screen and (max-width: 1200px) {
   .added-note {
-  height: 400px;
   width: 350px;
-  overflow: hidden;
   flex: 1 1 auto;
   max-width: 400px; 
   }
@@ -606,7 +607,7 @@ button:hover {
     font-size: 36px;
   }
 
-  .pop-up-added-note {
+ /* .pop-up-added-note {
     min-width: 575px;
     left: 20%;
     margin: 145px auto 20px 0;
@@ -616,6 +617,10 @@ button:hover {
   .pop-up-added-note > div > p, 
   .close {
     font-size: 46px;
+  }*/
+
+  .notes-div {
+    column-count: 2;
   }
   
   .l-col {
@@ -777,6 +782,10 @@ form {
   left: 0;
   height: 30px;
   width: 30px;
+}
+
+.container {
+  padding-left: 35px;
 }
 
 .container .checkmark:after {
