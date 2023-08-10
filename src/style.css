@@ -360,8 +360,7 @@ li {
   padding: 0 20px;
   row-gap: 30px;
   column-gap: 40px;
-  max-height: 540px;
-  max-width: 800px;
+  height: 540px;
   background: rgb(230, 230, 174);
   background-color: rgb(247, 241, 241);
   column-count: 3;
@@ -621,7 +620,7 @@ button:hover {
   }*/
 
   .notes-div {
-    column-count: 2;
+    height: 70vh;
   }
   
   .l-col {
@@ -775,7 +774,7 @@ form {
 }
 
 .search {
-  height: 80vh;
+  height: 75vh;
 }
 
 .checkmark {
