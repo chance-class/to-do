@@ -556,6 +556,10 @@ button:hover {
   white-space: nowrap;
 }
 
+.r-col {
+  background-color: rgb(247, 241, 241);
+}
+
 .r-col-header {
   display: none;
   text-align: center;
@@ -588,7 +592,7 @@ button:hover {
 
   .search, 
   .notes-div {
-    height: 640px;
+    height: 600px;
   }
 }
 
@@ -763,7 +767,7 @@ form {
 }
 
 .search {
-  height: 75vh;
+  height: 70vh;
 }
 
 .checkmark {
