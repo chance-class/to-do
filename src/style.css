@@ -342,6 +342,7 @@ li {
 .added-note {
   box-sizing: border-box;
   width: 247px;
+  height: auto;
   white-space: pre-wrap;
   background-color: rgb(238, 235, 235);
   padding: 0 10px;
@@ -353,11 +354,10 @@ li {
 }
 
 .notes-div {
-    position: relative;
-    box-sizing: border-box;
+  box-sizing: border-box;
   flex-direction: column;
   flex-wrap: wrap;
-  padding: 0 20px;
+  margin: 0 20px;
   row-gap: 30px;
   column-gap: 40px;
   height: 540px;
@@ -584,7 +584,6 @@ button:hover {
   }
 
   .added-note {
-    flex: 1 1 auto;
     max-width: 315px;
   }
 }
@@ -593,9 +592,7 @@ button:hover {
 
 @media screen and (max-width: 1200px) {
   .added-note {
-  width: 350px;
-  flex: 1 1 auto;
-  max-width: 400px; 
+  width: 350px; 
   }
 
   .delete-note {
