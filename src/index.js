@@ -58,7 +58,7 @@ document.addEventListener("click", (e) => {
     popupSelect.style.display = "none";
     popupTD.style.display = "none";
     popupProj.style.display = "none";
-   // popupNote.style.display = "none";
+    popupNote.style.display = "none";
   }
 })
 
@@ -180,6 +180,7 @@ navHome.addEventListener("click", () => {
     const navBtns = document.querySelectorAll(".nav-btn");
         for (const btn of navBtns) btn.classList.remove("active");
         navHome.classList.add("active");
+        
   })
 
 notes.addEventListener("click", () => {

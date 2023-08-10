@@ -177,16 +177,6 @@ form {
   text-align: left;
 }
 
-/*.bottom > button {
-  width: 65px;
-  height: 65px;
-  border-radius: 40px;
-  font-size: 40px;
-  background-color: #c56876;
-  color: white;
-  margin-bottom: 50px;
-}*/
-
 .add-btn > img {
   height: 80px;
   margin-bottom: 50px;
@@ -307,17 +297,6 @@ li {
   font-size: 18px;
 }
 
-/*.pop-up-added-note {
-    z-index: 9;
-    position: absolute;
-    left: 60%;
-    margin: 130px auto 20px -200px;
-    font-size: 26px;
-    border: 1px solid black;
-    min-height: 400px;
-    background-color: rgb(133, 185, 192);
-}*/
-
 .low {
   background: rgb(166, 248, 166);
   border: none;
@@ -361,10 +340,6 @@ li {
   background-color: rgb(238, 235, 235);
   padding: 0 10px;
   font-size: 20px;
-  /*min-height: 247px;
-   display: inline-block;
-  margin: 0 1em 1em;
-  width: 95%; */
 }
 
 .notes-div {
@@ -380,7 +355,6 @@ li {
   background: rgb(230, 230, 174);
   background-color: rgb(247, 241, 241);
   column-count: 3;
-  /*padding-right: 20px; */
 }
 
 .home-div {
@@ -623,18 +597,6 @@ button:hover {
   .added-note > div > p {
     font-size: 36px;
   }
-
- /* .pop-up-added-note {
-    min-width: 575px;
-    left: 20%;
-    margin: 145px auto 20px 0;
-  }
-
-  .pop-up-added-note > p, 
-  .pop-up-added-note > div > p, 
-  .close {
-    font-size: 46px;
-  }*/
 
   .notes-div {
     height: 70vh;

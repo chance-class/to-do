@@ -94,7 +94,6 @@ export const createTD = (name, details, duedate, priority) => {
     const thisP = homePs[homePs.length - 2];
     thisCheck.addEventListener("click", () => toggleChecked(name));
     const detBtns = document.querySelectorAll(".li-home button");
-    console.log(detBtns);
     const thisBtn = detBtns[detBtns.length - 1];
     thisBtn.classList.add("chosen");
     thisBtn.addEventListener("click", () => {
@@ -126,7 +125,6 @@ export const createTD = (name, details, duedate, priority) => {
     thisImg.addEventListener("click", () => {
       const homePs = document.querySelectorAll(".li-home p");
       const thisP = homePs[homePs.length - 2];
-      console.log(thisP);
       const allItems = document.querySelectorAll("li");
         for (const item of allItems) {
           item.classList.add("temp");
@@ -199,7 +197,6 @@ export const createProj = (title, details) => {
     priority.textContent = "";
     priority.style.display = "none";
     projTitle.textContent = `${title}`;
-   // projTitle.style.display = "none";
     duedate.textContent = "";
     duedate.style.display = "none";
     popup.style.display = "flex";
@@ -221,7 +218,6 @@ export const createProj = (title, details) => {
   projTrash.setAttribute("height", "30px");
   projTrash.addEventListener("click", () => {
     const projLIs = document.querySelectorAll(`.${className}-div li`);
-    console.log(projLIs);
     const homeLIs = document.querySelectorAll(".li-home");
         for (const chosen of homeLIs) {
           chosen.classList.add("current");
@@ -302,79 +298,11 @@ export const createNote = (name, details) => {
   noteDetails.setAttribute("contentEditable", true);
   note.appendChild(noteDetails);
   noteDiv.appendChild(note);
-  // const notePopup = note.cloneNode(true);
-  // notePopup.classList.add("pop-up-added-note");
-  // const x = document.createElement("span");
-  // x.classList.add("close");
-  // x.textContent = "X";
-  // x.style.paddingTop = "12px";
-  // x.addEventListener("click", () => notePopup.style.display = "none");
-  // const children = notePopup.children;
-  // for (const child of children) {
-  //   if (child.classList.contains("note-header")) child.appendChild(x);
-  // }
-  // notePopup.style.height = "auto";
-  // notePopup.style.width = "400px";
-  // notePopup.style.display = "none";
-  // const content = document.querySelector(".content");
-  // content.appendChild(notePopup);
-  // const images = document.querySelectorAll(".pop-up-added-note img");
-  // for (const image of images) {
-  //   image.remove();
-  // }
-  // const editNote = document.createElement("img");
-  // editNote.src = edit;
-  // editNote.classList.add("edit-note");
-  // editNote.style.paddingTop = "10px";
-  // editNote.setAttribute("height", "20px");
-  // const noteForm = document.querySelector(".pop-up-note");
-  // const noteFormTitle = document.querySelector("#title-note");
-  // const noteFormDetails = document.querySelector("#details-note");
-  // editNote.addEventListener("click", () => {
-  //   noteForm.style.display = "grid";
-  //   noteFormTitle.value = `${name}`;
-  //   noteFormDetails.value = `${details}`;
-  //   note.remove();
-  // })
   const deleteNote = document.createElement("img");
   deleteNote.src = trash;
   deleteNote.classList.add("delete-note");
   deleteNote.style.paddingTop = "10px";
   deleteNote.setAttribute("height", "24px");
   deleteNote.addEventListener("click", () => note.remove());
-  // noteHeader.appendChild(editNote);
   noteHeader.appendChild(deleteNote);
-  // noteDetails.addEventListener("click", () => notePopup.style.display = "block");
-  // const allBtns = document.querySelectorAll("button");
-  // const navAdd = document.querySelector(".nav-add");
-  // const dropBtn = document.querySelector(".drop-btn");
-  // for (const btn of allBtns) {
-  //   document.addEventListener("click", (e) => {
-  //     if (btn.contains(e.target)) notePopup.style.display = "none";
-  //   })
-  // }
-  // document.addEventListener("mouseover", (e) => {
-  //   if (navAdd.contains(e.target) || dropBtn.contains(e.target)) notePopup.style.display = "none";
-  // })
 }
-
-
-// Drafts:
-  
-const draftTD = (name, details, duedate) => {
-//  currentProj.todos.push(new TD(name, details, duedate));
-  createTD(name, details, duedate);
-}
-  
-class Proj {
-  constructor (name, details) {
-    this.name = name;
-    this.details = details;
-  }
-  todos = [];
-  UL = document.createElement("ul");
-}
-
-//const createProj = (name, details) => {
-  //new Proj(name, details);
-//}
