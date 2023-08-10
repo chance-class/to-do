@@ -9,7 +9,7 @@ createTD("Call Mom", "Give Mom a call back soon", "2023-07-29", "Low");
 createTD("Go to HEB", "Need to buy dog food", "2023-07-30", "Medium");
 createNote("Lalala", "This &#013;&#010;is &#013;&#010;the &#013;&#010;song &#013;&#010;that &#013;&#010;never &#013;&#010;ends &#013;&#010;and &#013;&#010;it &#013;&#010;goes &#013;&#010;on &#013;&#010;and &#013;&#010;on &#013;&#010;my &#013;&#010;friends");
 createNote("Editable text", "To edit your note, all you need to do is &#013;&#010;click &#013;&#010;inside &#013;&#010;the &#013;&#010;note &#013;&#010;and you can edit directly");
-createNote("Columns", "Content &#013;&#010;arranged &#013;&#010;into &#013;&#010;columns");
+createNote("Columns", "Content &#013;&#010;arranged &#013;&#010;into &#013;&#010;columns &#013;&#010;that scroll horizontally");
 createNote("New note goes first", "Each new note is added in front of the previous note, allowing you to keep tabs on what is most recent");
 
 
