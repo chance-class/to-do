@@ -298,7 +298,7 @@ export const createNote = (name, details) => {
   noteHeader.appendChild(noteName);
   
   const noteDetails = document.createElement("p");
-  noteDetails.textContent = details;
+  noteDetails.innerHTML = details;
   noteDetails.setAttribute("contentEditable", true);
   note.appendChild(noteDetails);
   noteDiv.appendChild(note);
