@@ -167,8 +167,6 @@ export const createProj = (title, details) => {
   for (const btn of navBtns) btn.classList.remove("active");
   newProj.classList.add("active");
   newNavProj.classList.add("active");
-  const br = document.createElement("br");
-  addedProjs.appendChild(br);
   addedProjs.appendChild(newProj);
   const addedNavProjs = document.querySelector(".nav-added-projs");
   addedNavProjs.appendChild(newNavProj);
