@@ -20,6 +20,7 @@ document.querySelector(".proj-btn").classList.remove("active");
 document.querySelector(".nav-proj-btn").classList.remove("active");
 document.querySelector(".finances-div").style.display = "none";
 document.querySelector(".home-div").style.display = "block";
+document.querySelector(".r-col-header").textContent = "Home";
 
 const add = document.querySelector(".add-btn");
 const popupSelect = document.querySelector(".pop-up-select");
