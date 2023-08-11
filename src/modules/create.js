@@ -235,10 +235,14 @@ export const createProj = (title, details) => {
           chosen.classList.remove("current");
         }
     newDiv.remove();
-    const home = document.querySelector(".home-div");
-    home.style.display = "block";
+    const homeDiv = document.querySelector(".home-div");
+    homeDiv.style.display = "block";
     const header = document.querySelector(".r-col-header");
     header.textContent = "Home";
+    const home = document.querySelector(".home");
+    home.classList.add("active");
+    const navHome = document.querySelector(".nav-home");
+    navHome.classList.add("active");
     newProj.remove();
     newNavProj.remove();
   })
