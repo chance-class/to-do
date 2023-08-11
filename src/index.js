@@ -177,6 +177,7 @@ home.addEventListener("click", () => {
   const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       home.classList.add("active");
+      navHome.classList.add("active");
 })
 
 navHome.addEventListener("click", () => {
@@ -192,6 +193,7 @@ navHome.addEventListener("click", () => {
     const navBtns = document.querySelectorAll(".nav-btn");
         for (const btn of navBtns) btn.classList.remove("active");
         navHome.classList.add("active");
+        home.classList.add("active");
         
   })
 
@@ -208,6 +210,7 @@ notes.addEventListener("click", () => {
   const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       notes.classList.add("active");
+      navNotes.classList.add("active");
 })
 
 navNotes.addEventListener("click", () => {
@@ -223,6 +226,7 @@ navNotes.addEventListener("click", () => {
   const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       navNotes.classList.add("active");
+      notes.classList.add("active");
 })
 
 low.addEventListener("click", () => {
