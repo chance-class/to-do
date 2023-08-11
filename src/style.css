@@ -284,6 +284,7 @@ li {
     margin: 200px auto 20px -200px;
     text-align: left;
     display: none;
+    white-space: pre-wrap;
   flex-direction: column;
   flex: 1 1 auto;
   gap: 10px;
