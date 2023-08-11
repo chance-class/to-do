@@ -5,7 +5,7 @@ import menu from './images/menu.png';
 import addImg from './images/add.png';
 import addRose from './images/add-rose.png';
 
-createTD("Call Jake", "Give Jake a call back soon", "2023-07-29", "Low");
+createTD("Call Ashley", "Give Ashley a call back soon", "2023-07-29", "Low");
 createTD("Go to HEB", "Need to buy dog food for next week", "2023-07-30", "Medium");
 createNote("Lalala", "This &#013;&#010;is &#013;&#010;the &#013;&#010;song &#013;&#010;that &#013;&#010;never &#013;&#010;ends &#013;&#010;and &#013;&#010;it &#013;&#010;goes &#013;&#010;on &#013;&#010;and &#013;&#010;on &#013;&#010;my &#013;&#010;friends");
 createNote("Editable text", "To edit your note, all you need to do is &#013;&#010;click &#013;&#010;inside &#013;&#010;the &#013;&#010;note &#013;&#010;and you can edit directly");
@@ -13,14 +13,17 @@ createNote("Columns", "Content &#013;&#010;arranged &#013;&#010;into &#013;&#010
 createNote("New note goes first", "Each new note is added in front of the previous note, allowing you to keep tabs on what is most recent");
 
 createProj("Finances", "Pay rent, bills, etc.");
-document.querySelector(".home-div").style.display = "none";
-document.querySelector(".finances-div").style.display = "block";
+const homeDiv = document.querySelector(".home-div")
+homeDiv.style.display = "none";
+const finDiv = document.querySelector(".finances-div")
+finDiv.style.display = "block";
 createTD("Pay rent", "Due on the 15th", "2023-08-15", "High");
 document.querySelector(".proj-btn").classList.remove("active");
 document.querySelector(".nav-proj-btn").classList.remove("active");
-document.querySelector(".finances-div").style.display = "none";
-document.querySelector(".home-div").style.display = "block";
-document.querySelector(".r-col-header").textContent = "Home";
+finDiv.style.display = "none";
+homeDiv.style.display = "block";
+const rColHeader = document.querySelector(".r-col-header");
+rColHeader.textContent = "Home";
 
 const add = document.querySelector(".add-btn");
 const popupSelect = document.querySelector(".pop-up-select");
@@ -32,7 +35,6 @@ const home = document.querySelector(".home");
 const navHome = document.querySelector(".nav-home");
 home.classList.add("active");
 navHome.classList.add("active");
-const rColHeader = document.querySelector(".r-col-header");
 const notes = document.querySelector(".notes");
 const navNotes = document.querySelector(".nav-notes");
 const low = document.querySelector(".low");
