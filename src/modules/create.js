@@ -243,6 +243,7 @@ export const createProj = (title, details) => {
     newNavProj.remove();
   })
   buttons.appendChild(projTrash);
+  buttons.style.marginBottom = "15px";
   newProj.addEventListener("click", () => {
     const search = document.querySelector(".search");
     const children = search.children;
