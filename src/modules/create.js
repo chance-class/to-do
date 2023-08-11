@@ -257,6 +257,7 @@ export const createProj = (title, details) => {
       const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       newProj.classList.add("active");
+      newNavProj.classList.add("active");
     }
   })
   newNavProj.addEventListener("click", () => {
@@ -272,6 +273,7 @@ export const createProj = (title, details) => {
       const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       newNavProj.classList.add("active");
+      newProj.classList.add("active");
     }
   })
 }
