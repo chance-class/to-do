@@ -600,6 +600,12 @@ button:hover {
 
 
 @media screen and (max-width: 1200px) {
+  .close-td, 
+.close-proj, 
+.close-note {
+  font-size: 34px;
+}
+  
   .added-note {
   width: 350px; 
   }
@@ -702,7 +708,7 @@ textarea {
 .medium, 
 .high {
   height: 30px;
-  width: 70px;
+  width: 85px;
   font-size: 18px;
 }
 
