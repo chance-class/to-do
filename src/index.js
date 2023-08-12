@@ -1,29 +1,34 @@
 import './style.css';
-import { createTD, createProj, createNote } from './modules/create.js';
+import { displayTD, displayProj, displayNote, TDs, projs, notes, TD, Note, Proj, pageLoad, currentProject } from './modules/create.js';
 import list from './images/white-list.png';
 import menu from './images/menu.png';
 import addImg from './images/add.png';
 import addRose from './images/add-rose.png';
 
-createTD("Call Ashley", "Give Ashley a call back soon", "2023-07-29", "Low");
-createTD("Go to HEB", "Need to buy dog food for next week", "2023-07-30", "Medium");
-createNote("Lalala", "This &#013;&#010;is &#013;&#010;the &#013;&#010;song &#013;&#010;that &#013;&#010;never &#013;&#010;ends &#013;&#010;and &#013;&#010;it &#013;&#010;goes &#013;&#010;on &#013;&#010;and &#013;&#010;on &#013;&#010;my &#013;&#010;friends");
-createNote("Editable text", "To edit your note, all you need to do is &#013;&#010;click &#013;&#010;inside &#013;&#010;the &#013;&#010;note &#013;&#010;and you can edit directly");
-createNote("Columns", "Content &#013;&#010;arranged &#013;&#010;into &#013;&#010;columns &#013;&#010;that scroll horizontally");
-createNote("New note goes first", "Each new note is added in front of the previous note, allowing you to keep tabs on what is most recent");
+pageLoad();
+console.log(TDs);
 
-createProj("Finances", "Pay rent, bills, etc.");
-const homeDiv = document.querySelector(".home-div")
-homeDiv.style.display = "none";
-const finDiv = document.querySelector(".finances-div")
-finDiv.style.display = "block";
-createTD("Pay rent", "Due on the 15th", "2023-08-15", "High");
-document.querySelector(".proj-btn").classList.remove("active");
-document.querySelector(".nav-proj-btn").classList.remove("active");
-finDiv.style.display = "none";
-homeDiv.style.display = "block";
+// createTD("Call Ashley", "Give Ashley a call back soon", "2023-07-29", "Low");
+// createTD("Go to HEB", "Need to buy dog food for next week", "2023-07-30", "Medium");
+// createNote("Lalala", "This &#013;&#010;is &#013;&#010;the &#013;&#010;song &#013;&#010;that &#013;&#010;never &#013;&#010;ends &#013;&#010;and &#013;&#010;it &#013;&#010;goes &#013;&#010;on &#013;&#010;and &#013;&#010;on &#013;&#010;my &#013;&#010;friends");
+// createNote("Editable text", "To edit your note, all you need to do is &#013;&#010;click &#013;&#010;inside &#013;&#010;the &#013;&#010;note &#013;&#010;and you can edit directly");
+// createNote("Columns", "Content &#013;&#010;arranged &#013;&#010;into &#013;&#010;columns &#013;&#010;that scroll horizontally");
+// createNote("New note goes first", "Each new note is added in front of the previous note, allowing you to keep tabs on what is most recent");
+
+// createProj("Finances", "Pay rent, bills, etc.");
+// const homeDiv = document.querySelector(".home-div")
+// homeDiv.style.display = "none";
+// const finDiv = document.querySelector(".finances-div")
+// finDiv.style.display = "block";
+// createTD("Pay rent", "Due on the 15th", "2023-08-15", "High");
+// document.querySelector(".proj-btn").classList.remove("active");
+// document.querySelector(".nav-proj-btn").classList.remove("active");
+// finDiv.style.display = "none";
+// homeDiv.style.display = "block";
+// const rColHeader = document.querySelector(".r-col-header");
+// rColHeader.textContent = "Home";
+
 const rColHeader = document.querySelector(".r-col-header");
-rColHeader.textContent = "Home";
 
 const add = document.querySelector(".add-btn");
 const popupSelect = document.querySelector(".pop-up-select");
@@ -35,7 +40,7 @@ const home = document.querySelector(".home");
 const navHome = document.querySelector(".nav-home");
 home.classList.add("active");
 navHome.classList.add("active");
-const notes = document.querySelector(".notes");
+const mainNotes = document.querySelector(".notes");
 const navNotes = document.querySelector(".nav-notes");
 const low = document.querySelector(".low");
 const medium = document.querySelector(".medium");
@@ -124,7 +129,10 @@ tdForm.addEventListener("submit", (e) => {
   const duedate = document.getElementById("duedate").value;
   const selected = document.querySelector(".selected");
   const priority = selected.textContent;
-  createTD(title, details, duedate, priority);
+  let project = currentProject;
+  TDs.push(new TD (title, details, duedate, priority, project));
+  console.log(TDs);
+  displayTD(title, details, duedate, priority, project);
   popupTD.style.display = "none";
   let allInputs = document.querySelectorAll('.input');
   allInputs.forEach(singleInput => singleInput.value = '');
@@ -138,7 +146,8 @@ projForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const title = document.getElementById("title-proj").value;
   const details = document.getElementById("details-proj").value;
-  createProj(title, details);
+  projs.push(new Proj(title, details));
+  displayProj(title, details);
   popupProj.style.display = "none";
   let allInputs = document.querySelectorAll('.input');
   allInputs.forEach(singleInput => singleInput.value = '');
@@ -149,7 +158,8 @@ noteForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const title = document.getElementById("title-note").value;
   const details = document.getElementById("details-note").value;
-  createNote(title, details);
+  notes.push(new Note(title, details));
+  displayNote(title, details);
   popupNote.style.display = "none";
   let allInputs = document.querySelectorAll('.input');
   allInputs.forEach(singleInput => singleInput.value = '');
@@ -164,7 +174,8 @@ noteForm.addEventListener("submit", (e) => {
   rColHeader.textContent = "Notes";
   const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
-      notes.classList.add("active");
+      mainNotes.classList.add("active");
+      navNotes.classList.add("active");
 })
 
 home.addEventListener("click", () => {
@@ -200,7 +211,7 @@ navHome.addEventListener("click", () => {
         
   })
 
-notes.addEventListener("click", () => {
+mainNotes.addEventListener("click", () => {
     const search = document.querySelector(".search");
     const children = search.children;
     for (let i=0; i < children.length; i++) {
@@ -212,7 +223,7 @@ notes.addEventListener("click", () => {
   rColHeader.textContent = "Notes";
   const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
-      notes.classList.add("active");
+      mainNotes.classList.add("active");
       navNotes.classList.add("active");
 })
 
@@ -229,7 +240,7 @@ navNotes.addEventListener("click", () => {
   const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       navNotes.classList.add("active");
-      notes.classList.add("active");
+      mainNotes.classList.add("active");
 })
 
 low.addEventListener("click", () => {

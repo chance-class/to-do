@@ -1,8 +1,74 @@
 
 import trash from '../images/trash.svg';
-import edit from '../images/edit.svg';
 
-export const createTD = (name, details, duedate, priority) => {
+export let TDs = [];
+
+export class TD {
+  constructor (name, details, duedate, priority, project) {
+    this.name = name;
+    this.details = details;
+    this.duedate = duedate;
+    this.priority = priority;
+    this.project = project;
+  }
+}
+
+export let projs = [];
+
+export class Proj {
+  constructor (name, details) {
+    this.name = name;
+    this.details = details;
+  }
+}
+
+export let notes = [];
+
+export class Note {
+  constructor (name, details) {
+    this.name = name;
+    this.details = details;
+  }
+}
+
+export let currentProject = "home-div";
+
+export const pageLoad = () => {
+
+  let allProjs = JSON.parse(localStorage.getItem("allProjs"));
+  projs = allProjs;
+  if (allProjs === null) {
+    return;
+  } else {
+    allProjs.forEach((proj) => {
+    displayProj(proj.name, proj.details);
+  })
+  }
+
+  let allTDs = JSON.parse(localStorage.getItem("allTDs"));
+  TDs = allTDs;
+  if (allTDs === null) {
+    return;
+  } else {
+    allTDs.forEach((todo) => {
+    displayTD(todo.name, todo.details, todo.duedate, todo.priority, todo.project);
+  })
+  }
+  console.log(JSON.parse(localStorage.getItem("allTDs")));
+  
+  let allNotes = JSON.parse(localStorage.getItem("allNotes"));
+  notes = allNotes;
+  if (allNotes === null) {
+    return;
+  } else {
+    allNotes.forEach((note) => {
+    displayNote(note.name, note.details);
+  })
+  }
+  
+}
+
+export const displayTD = (name, details, duedate, priority, project) => {
   const li = document.createElement("li");
   const td = document.createElement("div");
   td.classList.add("td-li");
@@ -59,6 +125,11 @@ export const createTD = (name, details, duedate, priority) => {
   tdTrash.setAttribute("height", "20px");
   tdTrash.addEventListener("click", () => {
     li.remove();
+    let i = 0;
+    for (const item of TDs) {
+      if (item.name === name) TDs.splice(i, 1);
+    }
+    localStorage.setItem("allTDs", JSON.stringify(TDs));
     const homeLIs = document.querySelectorAll(".li-home");
         for (const chosen of homeLIs) {
           chosen.classList.add("current");
@@ -70,20 +141,23 @@ export const createTD = (name, details, duedate, priority) => {
         }
   })
   td.appendChild(tdTrash);
-  const search = document.querySelector(".search");
-  const children = search.children;
-  for (let i=0; i < children.length; i++) {
-    let child = children[i];
-    if (!(child.style.display === "none")) {
-      if (child.classList.contains("notes-div")) {
-        continue;
-      } else {
-        child.appendChild(li);
-      }
-    }
-  }
-  const homeDiv = document.querySelector(".home-div");
-  if (homeDiv.style.display === "none") {
+
+  const current = document.querySelector(`.${project}`);
+  current.appendChild(li);
+
+  // const search = document.querySelector(".search");
+  // const children = search.children;
+  // for (let i=0; i < children.length; i++) {
+  //   let child = children[i];
+  //   if (!(child.style.display === "none")) {
+  //     if (child.classList.contains("notes-div")) {
+  //       continue;
+  //     } else {
+  //       child.appendChild(li);
+  //     }
+  //   }
+  // }
+  if (!(project === "home-div")) {
     const homeDiv = document.querySelector(".home-div");
     const liHome = li.cloneNode(true);
     liHome.classList.add("li-home")
@@ -135,6 +209,7 @@ export const createTD = (name, details, duedate, priority) => {
       liHome.remove();
     })
   }
+  localStorage.setItem("allTDs", JSON.stringify(TDs));
 }
 
 const toggleChecked = (name) => {
@@ -153,7 +228,7 @@ const toggleChecked = (name) => {
     }
   }
 
-export const createProj = (title, details) => {
+export const displayProj = (title, details) => {
   const addedProjs = document.querySelector(".added-projs");
   const newProj = document.createElement("button");
   newProj.textContent = `${title}`;
@@ -183,6 +258,7 @@ export const createProj = (title, details) => {
   const newName2 = newName.replace(/\s+/g, '-').toLowerCase();
   const className = newName2.replace(/'/,'');
   newDiv.classList.add(`${className}-div`);
+  currentProject = `${className}-div`;
   search.appendChild(newDiv);
   const det = document.createElement("button");
   det.textContent = "Details";
@@ -217,6 +293,11 @@ export const createProj = (title, details) => {
   projTrash.src = trash;
   projTrash.setAttribute("height", "30px");
   projTrash.addEventListener("click", () => {
+    let i = 0;
+    for (const item of projs) {
+      if (item.name === title) projs.splice(i, 1);
+    }
+    localStorage.setItem("allProjs", JSON.stringify(projs));
     const projLIs = document.querySelectorAll(`.${className}-div li`);
     const homeLIs = document.querySelectorAll(".li-home");
         for (const chosen of homeLIs) {
@@ -280,11 +361,12 @@ export const createProj = (title, details) => {
       newProj.classList.add("active");
     }
   })
+  localStorage.setItem("allProjs", JSON.stringify(projs));
 }
 
 let n = 1;
 
-export const createNote = (name, details) => {
+export const displayNote = (name, details) => {
   const noteDiv = document.querySelector(".notes-div");
   const note = document.createElement("div");
   note.classList.add("added-note");
@@ -310,6 +392,14 @@ export const createNote = (name, details) => {
   deleteNote.classList.add("delete-note");
   deleteNote.style.paddingTop = "10px";
   deleteNote.setAttribute("height", "24px");
-  deleteNote.addEventListener("click", () => note.remove());
+  deleteNote.addEventListener("click", () => {
+    note.remove();
+    let i = 0;
+    for (const item of notes) {
+      if (item.name === name) notes.splice(i, 1);
+    }
+    localStorage.setItem("allNotes", JSON.stringify(notes));
+  })
   noteHeader.appendChild(deleteNote);
+  localStorage.setItem("allNotes", JSON.stringify(notes));
 }
