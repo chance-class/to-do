@@ -5,30 +5,13 @@ import menu from './images/menu.png';
 import addImg from './images/add.png';
 import addRose from './images/add-rose.png';
 
+
 pageLoad();
-console.log(TDs);
 
-// createTD("Call Ashley", "Give Ashley a call back soon", "2023-07-29", "Low");
-// createTD("Go to HEB", "Need to buy dog food for next week", "2023-07-30", "Medium");
-// createNote("Lalala", "This &#013;&#010;is &#013;&#010;the &#013;&#010;song &#013;&#010;that &#013;&#010;never &#013;&#010;ends &#013;&#010;and &#013;&#010;it &#013;&#010;goes &#013;&#010;on &#013;&#010;and &#013;&#010;on &#013;&#010;my &#013;&#010;friends");
-// createNote("Editable text", "To edit your note, all you need to do is &#013;&#010;click &#013;&#010;inside &#013;&#010;the &#013;&#010;note &#013;&#010;and you can edit directly");
-// createNote("Columns", "Content &#013;&#010;arranged &#013;&#010;into &#013;&#010;columns &#013;&#010;that scroll horizontally");
-// createNote("New note goes first", "Each new note is added in front of the previous note, allowing you to keep tabs on what is most recent");
 
-// createProj("Finances", "Pay rent, bills, etc.");
-// const homeDiv = document.querySelector(".home-div")
-// homeDiv.style.display = "none";
-// const finDiv = document.querySelector(".finances-div")
-// finDiv.style.display = "block";
-// createTD("Pay rent", "Due on the 15th", "2023-08-15", "High");
-// document.querySelector(".proj-btn").classList.remove("active");
-// document.querySelector(".nav-proj-btn").classList.remove("active");
-// finDiv.style.display = "none";
-// homeDiv.style.display = "block";
-// const rColHeader = document.querySelector(".r-col-header");
-// rColHeader.textContent = "Home";
-
+const homeDiv = document.querySelector(".home-div")
 const rColHeader = document.querySelector(".r-col-header");
+rColHeader.textContent = "Home";
 
 const add = document.querySelector(".add-btn");
 const popupSelect = document.querySelector(".pop-up-select");
@@ -54,7 +37,6 @@ const search = document.querySelector(".search");
       let child = children[i];
       if (!(child.style.display === "none")) child.style.display = "none";
     }
-const homeDiv = document.querySelector(".home-div");
 homeDiv.style.display = "block";
 rColHeader.textContent = "Home";
 const navBtns = document.querySelectorAll(".nav-btn");
@@ -153,9 +135,7 @@ tdForm.addEventListener("submit", (e) => {
         else currentProject = child.getAttribute("class").toString();
       }
     }
-    console.log(currentProject);
   TDs.push(new TD (title, details, duedate, priority, currentProject, "unchecked"));
-  console.log(TDs);
   displayTD(title, details, duedate, priority, currentProject);
   popupTD.style.display = "none";
   let allInputs = document.querySelectorAll('.input');
@@ -209,7 +189,6 @@ home.addEventListener("click", () => {
     let child = children[i];
     if (!(child.style.display === "none")) child.style.display = "none";
   }
-  const homeDiv = document.querySelector(".home-div");
   homeDiv.style.display = "block";
   rColHeader.textContent = "Home";
   currentProject = "home-div";
@@ -226,7 +205,6 @@ navHome.addEventListener("click", () => {
       let child = children[i];
       if (!(child.style.display === "none")) child.style.display = "none";
     }
-    const homeDiv = document.querySelector(".home-div");
     homeDiv.style.display = "block";
     rColHeader.textContent = "Home";
     currentProject = "home-div"

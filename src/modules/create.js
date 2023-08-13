@@ -53,13 +53,9 @@ export const pageLoad = () => {
     TDs = allTDs;
     TDs.forEach((todo) => {
     displayTD(todo.name, todo.details, todo.duedate, todo.priority, todo.project, todo.checked);
-    if (todo.checked === "checked") { 
-      toggleChecked(todo.name);
-      console.log(todo);
-    }
+    if (todo.checked === "checked") toggleChecked(todo.name);
   })
   }
-  console.log(JSON.parse(localStorage.getItem("allTDs")));
   
   let allNotes = JSON.parse(localStorage.getItem("allNotes"));
   if (allNotes === null) {
@@ -90,7 +86,7 @@ export const displayTD = (name, details, duedate, priority, project) => {
   checkmark.classList.add("checkmark");
   container.appendChild(checkmark);
   td.appendChild(container);
-  checkmark.addEventListener("click", () => {
+ checkmark.addEventListener("click", () => {
     toggleChecked(name);
     TDs.forEach((item) => {
       if (item.name === name) {
@@ -98,7 +94,6 @@ export const displayTD = (name, details, duedate, priority, project) => {
         else if (item.checked === "unchecked") { 
           item.checked = "checked";
           item.class = "item";
-          console.log(item.checked);
         }
         else if (item.checked === "checked") {
           item.checked = "unchecked";
@@ -200,7 +195,6 @@ export const displayTD = (name, details, duedate, priority, project) => {
           else if (item.checked === "unchecked") { 
             item.checked = "checked";
             item.class = "item";
-            console.log(item.checked);
           }
           else if (item.checked === "checked") {
             item.checked = "unchecked";
@@ -282,6 +276,7 @@ const toggleChecked = (name) => {
                 if (item.name === name) item.checked = "unchecked"
               });
             } else if (!(p.classList.contains("checked"))) {
+              p.classList.add("tempitem");
               p.classList.add("checked");
               const tempCheck = document.querySelector(".temp .container .checkmark");
               tempCheck.classList.add("checked");
