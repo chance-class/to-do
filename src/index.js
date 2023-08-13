@@ -148,7 +148,10 @@ tdForm.addEventListener("submit", (e) => {
   const children = search.children;
     for (let i=0; i < children.length; i++) {
       let child = children[i];
-      if (!(child.style.display === "none")) currentProject = child.getAttribute("class").toString();
+      if (!(child.style.display === "none")) {
+        if (child.getAttribute("class").toString() === "notes-div") currentProject = "home-div";
+        else currentProject = child.getAttribute("class").toString();
+      }
     }
     console.log(currentProject);
   TDs.push(new TD (title, details, duedate, priority, currentProject, "unchecked"));

@@ -383,6 +383,7 @@ export const displayProj = (title, details) => {
           }
           chosen.classList.remove("current");
         }
+        localStorage.setItem("allTDs", JSON.stringify(TDs));
     newDiv.remove();
     const homeDiv = document.querySelector(".home-div");
     homeDiv.style.display = "block";
