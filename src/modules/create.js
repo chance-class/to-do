@@ -1,6 +1,8 @@
 
 import trash from '../images/trash.svg';
 import currentProject from '../index.js';
+import edit from '../images/edit.svg';
+import save from '../images/save.svg';
 
 export let TDs = [];
 
@@ -443,14 +445,46 @@ export const displayNote = (name, details) => {
   noteName.textContent = name;
   noteName.style.fontWeight = "bold";
   noteName.style.marginRight = "auto";
-  noteName.setAttribute("contentEditable", true);
   noteHeader.appendChild(noteName);
   
   const noteDetails = document.createElement("p");
   noteDetails.innerHTML = details;
-  noteDetails.setAttribute("contentEditable", true);
   note.appendChild(noteDetails);
   noteDiv.appendChild(note);
+  const saveNote = document.createElement("img");
+  saveNote.src = save;
+  saveNote.classList.add("save-note");
+  saveNote.style.paddingTop = "10px";
+  saveNote.setAttribute("height", "24px");
+  saveNote.style.display = "none";
+  noteHeader.appendChild(saveNote);
+  const editNote = document.createElement("img");
+  editNote.src = edit;
+  editNote.classList.add("edit-note");
+  editNote.style.paddingTop = "10px";
+  editNote.setAttribute("height", "24px");
+  noteHeader.appendChild(editNote);
+  saveNote.addEventListener("click", (e) => {
+      noteName.contentEditable = "false";
+      noteDetails.contentEditable = "false";
+      note.remove();
+      let i = 0;
+      for (const item of notes) {
+        if (item.name === name) notes.splice(i, 1);
+        i++;
+      }
+      displayNote(`${noteName.innerHTML}`, `${noteDetails.innerHTML}`);
+      notes.push(new Note(`${noteName.innerHTML}`, `${noteDetails.innerHTML}`))
+      localStorage.setItem("allNotes", JSON.stringify(notes))
+      saveNote.style.display = "none";
+      editNote.style.display = "flex";
+  })
+  editNote.addEventListener("click", (e) => {
+    noteName.contentEditable = !noteName.isContentEditable;
+    noteDetails.contentEditable = !noteDetails.isContentEditable;
+    editNote.style.display = "none";
+    saveNote.style.display = "flex";
+  })
   const deleteNote = document.createElement("img");
   deleteNote.src = trash;
   deleteNote.classList.add("delete-note");
