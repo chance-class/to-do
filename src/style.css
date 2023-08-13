@@ -618,7 +618,9 @@ button:hover {
   width: 350px; 
   }
 
-  .delete-note {
+  .delete-note, 
+  .save-note, 
+  .edit-note {
     height: 40px;
   }
 
