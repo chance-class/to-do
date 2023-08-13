@@ -1,5 +1,5 @@
 import './style.css';
-import { displayTD, displayProj, displayNote, TDs, projs, notes, TD, Note, Proj, pageLoad, currentProject } from './modules/create.js';
+import { displayTD, displayProj, displayNote, TDs, projs, notes, TD, Note, Proj, pageLoad } from './modules/create.js';
 import list from './images/white-list.png';
 import menu from './images/menu.png';
 import addImg from './images/add.png';
@@ -44,6 +44,23 @@ const low = document.querySelector(".low");
 const medium = document.querySelector(".medium");
 const high = document.querySelector(".high");
 const h1 = document.querySelector("h1");
+
+export let currentProject = "home-div";
+
+
+const search = document.querySelector(".search");
+  const children = search.children;
+    for (let i=0; i < children.length; i++) {
+      let child = children[i];
+      if (!(child.style.display === "none")) child.style.display = "none";
+    }
+const homeDiv = document.querySelector(".home-div");
+homeDiv.style.display = "block";
+rColHeader.textContent = "Home";
+const navBtns = document.querySelectorAll(".nav-btn");
+      for (const btn of navBtns) btn.classList.remove("active");
+      home.classList.add("active");
+      navHome.classList.add("active");
 
 const headerIcon = document.createElement("img");
 headerIcon.src = list;
@@ -127,10 +144,16 @@ tdForm.addEventListener("submit", (e) => {
   const duedate = document.getElementById("duedate").value;
   const selected = document.querySelector(".selected");
   const priority = selected.textContent;
-  let project = currentProject;
-  TDs.push(new TD (title, details, duedate, priority, project, "unchecked"));
+  const search = document.querySelector(".search");
+  const children = search.children;
+    for (let i=0; i < children.length; i++) {
+      let child = children[i];
+      if (!(child.style.display === "none")) currentProject = child.getAttribute("class").toString();
+    }
+    console.log(currentProject);
+  TDs.push(new TD (title, details, duedate, priority, currentProject, "unchecked"));
   console.log(TDs);
-  displayTD(title, details, duedate, priority, project);
+  displayTD(title, details, duedate, priority, currentProject);
   popupTD.style.display = "none";
   let allInputs = document.querySelectorAll('.input');
   allInputs.forEach(singleInput => singleInput.value = '');
@@ -186,6 +209,7 @@ home.addEventListener("click", () => {
   const homeDiv = document.querySelector(".home-div");
   homeDiv.style.display = "block";
   rColHeader.textContent = "Home";
+  currentProject = "home-div";
   const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       home.classList.add("active");
@@ -202,6 +226,7 @@ navHome.addEventListener("click", () => {
     const homeDiv = document.querySelector(".home-div");
     homeDiv.style.display = "block";
     rColHeader.textContent = "Home";
+    currentProject = "home-div"
     const navBtns = document.querySelectorAll(".nav-btn");
         for (const btn of navBtns) btn.classList.remove("active");
         navHome.classList.add("active");
@@ -219,6 +244,7 @@ mainNotes.addEventListener("click", () => {
   const notesDiv = document.querySelector(".notes-div");
   notesDiv.style.display = "flex";
   rColHeader.textContent = "Notes";
+  currentProject = "notes-div";
   const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       mainNotes.classList.add("active");
@@ -235,6 +261,7 @@ navNotes.addEventListener("click", () => {
   const notesDiv = document.querySelector(".notes-div");
   notesDiv.style.display = "flex";
   rColHeader.textContent = "Notes";
+  currentProject = "notes-div";
   const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       navNotes.classList.add("active");

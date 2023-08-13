@@ -1,5 +1,6 @@
 
 import trash from '../images/trash.svg';
+import currentProject from '../index.js';
 
 export let TDs = [];
 
@@ -32,8 +33,6 @@ export class Note {
     this.details = details;
   }
 }
-
-export let currentProject = "home-div";
 
 export const pageLoad = () => {
 
@@ -249,10 +248,18 @@ export const displayTD = (name, details, duedate, priority, project) => {
         for (const item of allItems) {
           item.classList.add("temp");
           const tempP = document.querySelector(".temp p");
-          if (tempP.textContent === thisP.textContent) item.remove();
+          if (tempP.textContent === thisP.textContent) {
+            item.remove();
+          }
+          let i = 0;
+            for (const object of TDs) {
+            if (object.name == thisP.textContent) TDs.splice(i, 1);
+            i++;
+            }
           item.classList.remove("temp");
         }
       liHome.remove();
+      localStorage.setItem("allTDs", JSON.stringify(TDs));
     })
   }
   localStorage.setItem("allTDs", JSON.stringify(TDs));
@@ -464,3 +471,6 @@ export const displayNote = (name, details) => {
   noteHeader.appendChild(deleteNote);
   localStorage.setItem("allNotes", JSON.stringify(notes));
 }
+
+
+
