@@ -5,8 +5,7 @@ import menu from './images/menu.png';
 import addImg from './images/add.png';
 import addRose from './images/add-rose.png';
 
-
-pageLoad();
+ pageLoad();
 
 
 const homeDiv = document.querySelector(".home-div")

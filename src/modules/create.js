@@ -461,6 +461,7 @@ export const displayNote = (name, details) => {
     let i = 0;
     for (const item of notes) {
       if (item.name === name) notes.splice(i, 1);
+      i++;
     }
     localStorage.setItem("allNotes", JSON.stringify(notes));
   })
