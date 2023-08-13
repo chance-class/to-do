@@ -4,12 +4,14 @@ import trash from '../images/trash.svg';
 export let TDs = [];
 
 export class TD {
-  constructor (name, details, duedate, priority, project) {
+  constructor (name, details, duedate, priority, project, checked) {
     this.name = name;
     this.details = details;
     this.duedate = duedate;
     this.priority = priority;
     this.project = project;
+    this.checked = checked;
+    this.class = "";
   }
 }
 
@@ -36,31 +38,35 @@ export let currentProject = "home-div";
 export const pageLoad = () => {
 
   let allProjs = JSON.parse(localStorage.getItem("allProjs"));
-  projs = allProjs;
   if (allProjs === null) {
     return;
   } else {
+    projs = allProjs;
     allProjs.forEach((proj) => {
     displayProj(proj.name, proj.details);
   })
   }
 
   let allTDs = JSON.parse(localStorage.getItem("allTDs"));
-  TDs = allTDs;
   if (allTDs === null) {
     return;
   } else {
-    allTDs.forEach((todo) => {
-    displayTD(todo.name, todo.details, todo.duedate, todo.priority, todo.project);
+    TDs = allTDs;
+    TDs.forEach((todo) => {
+    displayTD(todo.name, todo.details, todo.duedate, todo.priority, todo.project, todo.checked);
+    if (todo.checked === "checked") { 
+      toggleChecked(todo.name);
+      console.log(todo);
+    }
   })
   }
   console.log(JSON.parse(localStorage.getItem("allTDs")));
   
   let allNotes = JSON.parse(localStorage.getItem("allNotes"));
-  notes = allNotes;
   if (allNotes === null) {
     return;
   } else {
+    notes = allNotes;
     allNotes.forEach((note) => {
     displayNote(note.name, note.details);
   })
@@ -75,6 +81,7 @@ export const displayTD = (name, details, duedate, priority, project) => {
   li.appendChild(td);
   const tdName = document.createElement("p");
   tdName.textContent = name;
+  tdName.classList.add("td-name");
   const container = document.createElement("div");
   container.classList.add("container");
   const check = document.createElement("input");
@@ -84,7 +91,26 @@ export const displayTD = (name, details, duedate, priority, project) => {
   checkmark.classList.add("checkmark");
   container.appendChild(checkmark);
   td.appendChild(container);
-  checkmark.addEventListener("click", () => toggleChecked(name));
+  checkmark.addEventListener("click", () => {
+    toggleChecked(name);
+    TDs.forEach((item) => {
+      if (item.name === name) {
+        if (item.class = "item") return;
+        else if (item.checked === "unchecked") { 
+          item.checked = "checked";
+          item.class = "item";
+          console.log(item.checked);
+        }
+        else if (item.checked === "checked") {
+          item.checked = "unchecked";
+          item.class = "item";
+        }
+        else console.log("error");
+      }
+    })
+    TDs.forEach((item) => item.class = "");
+    localStorage.setItem("allTDs", JSON.stringify(TDs));
+  });
   td.appendChild(tdName);
   const det = document.createElement("button");
   det.textContent = "Details";
@@ -128,6 +154,7 @@ export const displayTD = (name, details, duedate, priority, project) => {
     let i = 0;
     for (const item of TDs) {
       if (item.name === name) TDs.splice(i, 1);
+      i++;
     }
     localStorage.setItem("allTDs", JSON.stringify(TDs));
     const homeLIs = document.querySelectorAll(".li-home");
@@ -166,7 +193,26 @@ export const displayTD = (name, details, duedate, priority, project) => {
     const thisCheck = checkboxes[checkboxes.length - 1];
     const homePs = document.querySelectorAll(".li-home p");
     const thisP = homePs[homePs.length - 2];
-    thisCheck.addEventListener("click", () => toggleChecked(name));
+    thisCheck.addEventListener("click", () => {
+      toggleChecked(name);
+      TDs.forEach((item) => {
+        if (item.name === name) {
+          if (item.class = "item") return;
+          else if (item.checked === "unchecked") { 
+            item.checked = "checked";
+            item.class = "item";
+            console.log(item.checked);
+          }
+          else if (item.checked === "checked") {
+            item.checked = "unchecked";
+            item.class = "item";
+          }
+          else console.log("error");
+        }
+      })
+      TDs.forEach((item) => item.class = "");
+      localStorage.setItem("allTDs", JSON.stringify(TDs));
+    });
     const detBtns = document.querySelectorAll(".li-home button");
     const thisBtn = detBtns[detBtns.length - 1];
     thisBtn.classList.add("chosen");
@@ -219,10 +265,25 @@ const toggleChecked = (name) => {
         const tempPs = document.querySelectorAll(".temp p");
         for (const p of tempPs) {
           if (p.textContent === `${name}`) {
-            p.classList.toggle("checked");
-            const tempCheck = document.querySelector(".temp .container .checkmark");
-            tempCheck.classList.toggle("checked");
+            if (p.classList.contains("tempitem")) return;
+            else if (p.classList.contains("checked")) {
+              p.classList.add("tempitem")
+              p.classList.remove("checked");
+              const tempCheck = document.querySelector(".temp .container .checkmark");
+              tempCheck.classList.remove("checked");
+              TDs.forEach((item) => {
+                if (item.name === name) item.checked = "unchecked"
+              });
+            } else if (!(p.classList.contains("checked"))) {
+              p.classList.add("checked");
+              const tempCheck = document.querySelector(".temp .container .checkmark");
+              tempCheck.classList.add("checked");
+              TDs.forEach((item) => {
+                if (item.name === name) item.checked = "checked"
+              });
+            } else console.log("error2");
         }
+        for (const p of tempPs) p.classList.remove("tempitem");
       }
       item.classList.remove("temp");
     }

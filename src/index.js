@@ -38,8 +38,6 @@ const popupNote = document.querySelector(".pop-up-note");
 const popupDetails = document.querySelector(".pop-up-details");
 const home = document.querySelector(".home");
 const navHome = document.querySelector(".nav-home");
-home.classList.add("active");
-navHome.classList.add("active");
 const mainNotes = document.querySelector(".notes");
 const navNotes = document.querySelector(".nav-notes");
 const low = document.querySelector(".low");
@@ -130,7 +128,7 @@ tdForm.addEventListener("submit", (e) => {
   const selected = document.querySelector(".selected");
   const priority = selected.textContent;
   let project = currentProject;
-  TDs.push(new TD (title, details, duedate, priority, project));
+  TDs.push(new TD (title, details, duedate, priority, project, "unchecked"));
   console.log(TDs);
   displayTD(title, details, duedate, priority, project);
   popupTD.style.display = "none";
