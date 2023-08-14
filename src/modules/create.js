@@ -361,6 +361,7 @@ export const displayProj = (title, details) => {
     let i = 0;
     for (const item of projs) {
       if (item.name === title) projs.splice(i, 1);
+      i++;
     }
     localStorage.setItem("allProjs", JSON.stringify(projs));
     const projLIs = document.querySelectorAll(`.${className}-div li`);
@@ -373,7 +374,14 @@ export const displayProj = (title, details) => {
               projItem.classList.add("p-item");
               const projPs = document.querySelectorAll(".p-item p");
               for (const item of projPs) {
-                if (nextP.textContent === item.textContent) chosen.remove();
+                if (nextP.textContent === item.textContent) {
+                  chosen.remove();
+                  i = 0;
+                  for (const item of TDs) {
+                    if (nextP.textContent === item.name)  TDs.splice(i, 1);
+                    i++;
+                  }
+                } 
               }
               projItem.classList.remove("p-item");
             }

@@ -16,7 +16,7 @@ import addRose from './images/add-rose.png';
    notes.push(new TD("Lalala", "This &#013;&#010;is &#013;&#010;the &#013;&#010;song &#013;&#010;that &#013;&#010;never &#013;&#010;ends &#013;&#010;and &#013;&#010;it &#013;&#010;goes &#013;&#010;on &#013;&#010;and &#013;&#010;on &#013;&#010;my &#013;&#010;friends"));
    notes.push(new TD("Editable text", "To edit your note, all you need to do is &#013;&#010;click the &#013;&#010;edit button, &#013;&#010;make your edits, &#013;&#010;and click the &#013;&#010;save button"));
    notes.push(new TD("Columns", "Content &#013;&#010;arranged &#013;&#010;into &#013;&#010;columns &#013;&#010;that scroll horizontally"));
-   notes.push(new TD("New note goes first", "Each new note is added in front of the previous note, allowing you to keep tabs on what is most recent"));
+   notes.push(new TD("New note goes first", "Each new (or edited) note is added in front of the previous note(s), allowing you to keep tabs on what is most recent"));
    projs.push(new TD("Finances", "Pay rent, bills, etc."));
    TDs.push(new TD("Pay rent", "Due on the 15th", "2023-08-15", "High", "finances-div", "unchecked"));
    localStorage.setItem("allTDs", JSON.stringify(TDs));
