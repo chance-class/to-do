@@ -149,130 +149,8 @@ export const displayTD = (name, details, duedate, priority, id, project) => {
   const editTD = document.createElement("img");
 editTD.src = edit;
 editTD.setAttribute("height", "20px");
-editTD.addEventListener("click", () => {
-  let i = 0;
-  for (const item of TDs) {
-    if (item.id === id) {
-      console.log(item);
-      currentTD = item;
-    }
-    i++;
-  }
-  const content = document.querySelector(".content");
-const popupEdit = document.createElement("div");
-popupEdit.classList.add("pop-up-edit-td");
-content.appendChild(popupEdit);
-const pHead = document.createElement("div");
-pHead.classList.add("p-head");
-popupEdit.appendChild(pHead);
-const h2 = document.createElement("h2");
-h2.textContent = "Edit To-Do";
-pHead.appendChild(h2);
-const close = document.createElement("span");
-close.classList.add("close-edit-td");
-close.textContent = "X";
-close.addEventListener("click", () => popupEdit.remove());
-pHead.appendChild(close);
-const edTitle = document.createElement("input");
-edTitle.setAttribute("type", "text");
-edTitle.setAttribute("id", "ed-title-td");
-edTitle.value = currentTD.name;
-edTitle.setAttribute("maxlength", "45");
-edTitle.setAttribute("required", true);
-popupEdit.appendChild(edTitle);
-const edDetails = document.createElement("textarea");
-edDetails.setAttribute("id", "ed-details-td");
-edDetails.textContent = currentTD.details;
-popupEdit.appendChild(edDetails);
-const edDue = document.createElement("div");
-edDue.classList.add("due");
-popupEdit.appendChild(edDue);
-const p = document.createElement("p");
-p.textContent = "Due date: ";
-edDue.appendChild(p);
-const edDate = document.createElement("input");
-edDate.setAttribute("type", "date");
-edDate.setAttribute("id", "ed-duedate");
-edDate.value = currentTD.duedate;
-edDate.setAttribute("required", true);
-edDue.appendChild(edDate);
-const footer = document.createElement("div");
-footer.classList.add("footer");
-popupEdit.appendChild(footer);
-const edPriority = document.createElement("div");
-edPriority.classList.add("priority");
-footer.appendChild(edPriority);
-const p2 = document.createElement("p");
-p2.textContent = "Priority: ";
-edPriority.appendChild(p2);
-const edLow = document.createElement("button");
-edLow.textContent = "Low";
-edLow.setAttribute("type", "button");
-edLow.classList.add("ed-low");
-edLow.classList.add("ed-selected");
-edPriority.appendChild(edLow);
-const edMed = document.createElement("button");
-edMed.textContent = "Medium";
-edMed.setAttribute("type", "button");
-edMed.classList.add("ed-medium");
-edPriority.appendChild(edMed);
-const edHigh = document.createElement("button");
-edHigh.textContent = "High";
-edHigh.setAttribute("type", "button");
-edHigh.classList.add("ed-high");
-edPriority.appendChild(edHigh);
-edLow.addEventListener("click", () => {
-  edLow.classList.add("ed-selected");
-  edMed.classList.remove("ed-selected");
-  edHigh.classList.remove("ed-selected");
-})
-
-edMed.addEventListener("click", () => {
-    edMed.classList.add("ed-selected");
-    edLow.classList.remove("ed-selected");
-    edHigh.classList.remove("ed-selected");
-  })
-
-  edHigh.addEventListener("click", () => {
-    edHigh.classList.add("ed-selected");
-    edMed.classList.remove("ed-selected");
-    edLow.classList.remove("ed-selected");
-  })
-const submit = document.createElement("button");
-submit.classList.add("edit-td");
-submit.textContent = "Save to-do";
-footer.appendChild(submit);
-
-submit.addEventListener("click", (e) => {
-    let newName = edTitle.value;
-    let newDetails = edDetails.value;
-    let newDuedate = edDate.value;
-    const edSelected = document.querySelector(".ed-selected");
-    let newPriority = edSelected.textContent;
-    const newId = Math.random().toString(16).slice(2);
-    let i = 0;
-    for (const item of TDs) {
-      if (item.id === id) {
-        console.log(item);
-        item.name = newName;
-        item.details = newDetails;
-        item.duedate = newDuedate;
-        item.priority = newPriority;
-        item.id = newId;
-      }
-      i++;
-    }
-    li.remove();
-    localStorage.setItem("allTDs", JSON.stringify(TDs));
-    console.log(TDs);
-    popupEdit.remove();
-    location.reload();
-  })
-
-})
-
+editTD.addEventListener("click", () => createEditTD(id));
 td.appendChild(editTD);
-
 
   const tdTrash = document.createElement("img");
   tdTrash.src = trash;
@@ -369,16 +247,76 @@ td.appendChild(editTD);
     })
     const images = document.querySelectorAll(".li-home img");
     const editTD = images[images.length - 2];
-    editTD.addEventListener("click", () => {
-      let i = 0;
-      for (const item of TDs) {
-        if (item.id === id) {
-          console.log(item);
-          currentTD = item;
+    editTD.addEventListener("click", () => createEditTD(id));
+    
+    const thisImg = images[images.length - 1];
+    thisImg.addEventListener("click", () => {
+      const homePs = document.querySelectorAll(".li-home p");
+      const thisP = homePs[homePs.length - 2];
+      const allItems = document.querySelectorAll("li");
+        for (const item of allItems) {
+          item.classList.add("temp");
+          const tempP = document.querySelector(".temp p");
+          if (tempP.textContent === thisP.textContent) {
+            item.remove();
+          }
+          let i = 0;
+            for (const object of TDs) {
+            if (object.name == thisP.textContent) TDs.splice(i, 1);
+            i++;
+            }
+          item.classList.remove("temp");
         }
-        i++;
+      liHome.remove();
+      localStorage.setItem("allTDs", JSON.stringify(TDs));
+    })
+  }
+  localStorage.setItem("allTDs", JSON.stringify(TDs));
+}
+
+const toggleChecked = (name) => {
+    const allItems = document.querySelectorAll("li");
+    for (const item of allItems) {
+        item.classList.add("temp");
+        const tempPs = document.querySelectorAll(".temp p");
+        for (const p of tempPs) {
+          if (p.textContent === `${name}`) {
+            if (p.classList.contains("tempitem")) return;
+            else if (p.classList.contains("checked")) {
+              p.classList.add("tempitem")
+              p.classList.remove("checked");
+              const tempCheck = document.querySelector(".temp .container .checkmark");
+              tempCheck.classList.remove("checked");
+              TDs.forEach((item) => {
+                if (item.name === name) item.checked = "unchecked"
+              });
+            } else if (!(p.classList.contains("checked"))) {
+              p.classList.add("tempitem");
+              p.classList.add("checked");
+              const tempCheck = document.querySelector(".temp .container .checkmark");
+              tempCheck.classList.add("checked");
+              TDs.forEach((item) => {
+                if (item.name === name) item.checked = "checked"
+              });
+            } else console.log("error2");
+        }
+        for (const p of tempPs) p.classList.remove("tempitem");
       }
-      const content = document.querySelector(".content");
+      item.classList.remove("temp");
+    }
+  }
+
+
+const createEditTD = (id) => {
+  let i = 0;
+  for (const item of TDs) {
+    if (item.id === id) {
+      console.log(item);
+      currentTD = item;
+    }
+    i++;
+  }
+  const content = document.querySelector(".content");
     const popupEdit = document.createElement("div");
     popupEdit.classList.add("pop-up-edit-td");
     content.appendChild(popupEdit);
@@ -482,71 +420,14 @@ td.appendChild(editTD);
           }
           i++;
         }
-        li.remove();
         localStorage.setItem("allTDs", JSON.stringify(TDs));
         console.log(TDs);
         popupEdit.remove();
         location.reload();
       })
     
-    })
-    
-    const thisImg = images[images.length - 1];
-    thisImg.addEventListener("click", () => {
-      const homePs = document.querySelectorAll(".li-home p");
-      const thisP = homePs[homePs.length - 2];
-      const allItems = document.querySelectorAll("li");
-        for (const item of allItems) {
-          item.classList.add("temp");
-          const tempP = document.querySelector(".temp p");
-          if (tempP.textContent === thisP.textContent) {
-            item.remove();
-          }
-          let i = 0;
-            for (const object of TDs) {
-            if (object.name == thisP.textContent) TDs.splice(i, 1);
-            i++;
-            }
-          item.classList.remove("temp");
-        }
-      liHome.remove();
-      localStorage.setItem("allTDs", JSON.stringify(TDs));
-    })
-  }
-  localStorage.setItem("allTDs", JSON.stringify(TDs));
 }
 
-const toggleChecked = (name) => {
-    const allItems = document.querySelectorAll("li");
-    for (const item of allItems) {
-        item.classList.add("temp");
-        const tempPs = document.querySelectorAll(".temp p");
-        for (const p of tempPs) {
-          if (p.textContent === `${name}`) {
-            if (p.classList.contains("tempitem")) return;
-            else if (p.classList.contains("checked")) {
-              p.classList.add("tempitem")
-              p.classList.remove("checked");
-              const tempCheck = document.querySelector(".temp .container .checkmark");
-              tempCheck.classList.remove("checked");
-              TDs.forEach((item) => {
-                if (item.name === name) item.checked = "unchecked"
-              });
-            } else if (!(p.classList.contains("checked"))) {
-              p.classList.add("tempitem");
-              p.classList.add("checked");
-              const tempCheck = document.querySelector(".temp .container .checkmark");
-              tempCheck.classList.add("checked");
-              TDs.forEach((item) => {
-                if (item.name === name) item.checked = "checked"
-              });
-            } else console.log("error2");
-        }
-        for (const p of tempPs) p.classList.remove("tempitem");
-      }
-      item.classList.remove("temp");
-    }
-  }
 
 export const displayProj = (title, details) => {
   const addedProjs = document.querySelector(".added-projs");
