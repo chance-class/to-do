@@ -4,14 +4,17 @@ import currentProject from '../index.js';
 import edit from '../images/edit.svg';
 import save from '../images/save.svg';
 
+export let currentTD;
+
 export let TDs = [];
 
 export class TD {
-  constructor (name, details, duedate, priority, project, checked) {
+  constructor (name, details, duedate, priority, id, project, checked) {
     this.name = name;
     this.details = details;
     this.duedate = duedate;
     this.priority = priority;
+    this.id = id;
     this.project = project;
     this.checked = checked;
     this.class = "";
@@ -54,7 +57,7 @@ export const pageLoad = () => {
   } else {
     TDs = allTDs;
     TDs.forEach((todo) => {
-    displayTD(todo.name, todo.details, todo.duedate, todo.priority, todo.project, todo.checked);
+    displayTD(todo.name, todo.details, todo.duedate, todo.priority, todo.id, todo.project);
     if (todo.checked === "checked") toggleChecked(todo.name);
   })
   }
@@ -71,12 +74,12 @@ export const pageLoad = () => {
   
 }
 
-export const displayTD = (name, details, duedate, priority, project) => {
+export const displayTD = (name, details, duedate, priority, id, project) => {
   const li = document.createElement("li");
   const td = document.createElement("div");
   td.classList.add("td-li");
   li.appendChild(td);
-  const tdName = document.createElement("p");
+  let tdName = document.createElement("p");
   tdName.textContent = name;
   tdName.classList.add("td-name");
   const container = document.createElement("div");
@@ -138,7 +141,7 @@ export const displayTD = (name, details, duedate, priority, project) => {
   else if (priority === "Medium") li.classList.add("med-prio");
   else if (priority === "High") li.classList.add("high-prio");
   td.appendChild(det);
-  const tdDue = document.createElement("p");
+  let tdDue = document.createElement("p");
   tdDue.textContent = duedate;
   tdDue.classList.add("tdDue")
   td.appendChild(tdDue);
@@ -449,13 +452,13 @@ export const displayNote = (name, details) => {
   const noteHeader = document.createElement("div");
   note.appendChild(noteHeader);
   noteHeader.classList.add("note-header");
-  const noteName = document.createElement("p");
+  let noteName = document.createElement("p");
   noteName.textContent = name;
   noteName.style.fontWeight = "bold";
   noteName.style.marginRight = "auto";
   noteHeader.appendChild(noteName);
   
-  const noteDetails = document.createElement("p");
+  let noteDetails = document.createElement("p");
   noteDetails.innerHTML = details;
   note.appendChild(noteDetails);
   noteDiv.appendChild(note);
@@ -473,17 +476,19 @@ export const displayNote = (name, details) => {
   editNote.setAttribute("height", "24px");
   noteHeader.appendChild(editNote);
   saveNote.addEventListener("click", (e) => {
-      noteName.contentEditable = "false";
-      noteDetails.contentEditable = "false";
-      note.remove();
+      noteName.innerHTML = `${noteName.innerHTML}`;
+      noteDetails.innerHTML = `${noteDetails.innerHTML}`;
       let i = 0;
       for (const item of notes) {
-        if (item.name === name) notes.splice(i, 1);
-        i++;
-      }
-      displayNote(`${noteName.innerHTML}`, `${noteDetails.innerHTML}`);
-      notes.push(new Note(`${noteName.innerHTML}`, `${noteDetails.innerHTML}`))
-      localStorage.setItem("allNotes", JSON.stringify(notes))
+         if (item.name === name) {
+          item.name = noteName.innerHTML;
+          item.details = noteDetails.innerHTML;
+         }
+         i++;
+       }
+      localStorage.setItem("allNotes", JSON.stringify(notes));
+      noteName.contentEditable = "false";
+      noteDetails.contentEditable = "false";
       saveNote.style.display = "none";
       editNote.style.display = "flex";
   })
