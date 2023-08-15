@@ -45,13 +45,13 @@
             <div class="notes-div" style="display: none"></div>
           </div>
         </div>
-        <div class="pop-up-select">
+        <div class="pop-up-select" display="none">
             <h2>Add new:</h2>
             <button class="new-td">To-Do</button>
             <button class="new-proj">Project</button>
             <button class="new-note">Note</button>
           </div>
-          <div class="pop-up-td">
+          <div class="pop-up-td" display="none">
               <div class="p-head"><h2>New To-Do</h2><span class="close-td">X</span></div>
               <form name="addTD" id="addTD" method="post">
                 <input type="text" class="input" name="title-td" id="title-td" placeholder="Title" maxlength="45" required>
@@ -71,7 +71,7 @@
                 </div>
               </form>
           </div>
-          <div class="pop-up-proj">
+          <div class="pop-up-proj" display="none">
                 <div class="p-head"><h2>New Project</h2><span class="close-proj">X</span></div>
                 <form name="addProj" id="addProj">
                   <input type="text" name="title-proj" class="input" id="title-proj" placeholder="Title" maxlength="15" required>
@@ -79,7 +79,7 @@
                   <button class="add-proj" class="input" type="submit">Add project</button>
                 </form>
             </div>
-            <div class="pop-up-note">
+            <div class="pop-up-note" display="none">
                 <div class="p-head"><h2>New Note</h2><span class="close-note">X</span></div>
                 <form name="addNote" id="addNote">
                   <input type="text" name="title-note"class="input"  id="title-note" placeholder="Title" required>

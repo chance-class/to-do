@@ -109,7 +109,23 @@ p {
   text-align: left;
 }
 
-.pop-up-td {
+.pop-up-edit-td {
+  width: 600px;
+  height: 260px;
+  background-color: rgb(238, 235, 235);
+  z-index: 9;
+  position: absolute;
+  left: 42%;
+  margin: 200px auto 20px -200px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 10px;
+}
+
+.pop-up-td, 
+.pop-up-edit-td {
   height: 350px;
   font-size: 18px;
 }
@@ -147,7 +163,8 @@ textarea {
 }
 
 form > button, 
-form > div > button {
+form > div > button, 
+.pop-up-edit-td > div > button {
   background-color: rgb(2, 146, 165);
   color: white;
   border: none;
@@ -207,7 +224,10 @@ form {
 .proj-det,  
 .low, 
 .medium, 
-.high {
+.high, 
+.ed-low, 
+.ed-medium, 
+.ed-high {
   text-transform: uppercase;
 }
 
@@ -299,36 +319,43 @@ li {
   font-size: 18px;
 }
 
-.low {
+.low, 
+.ed-low {
   background: rgb(166, 248, 166);
   border: none;
 }
 
-.selected.low {
+.selected.low, 
+.ed-selected.ed-low {
   border: 3px solid green;
 }
 
-.medium {
+.medium, 
+.ed-medium {
   background: rgb(248, 248, 173);
   border: none;
 }
 
-.medium.selected {
+.medium.selected, 
+.ed-medium.ed-selected {
   border: 3px solid yellow;
 }
 
-.high {
+.high, 
+.ed-high {
   background: rgb(243, 162, 162);
   border: none;
 }
 
-.high.selected {
+.high.selected, 
+.ed-high.ed-selected {
   border: 3px solid red;
 }
 
 .add-td, 
 .add-proj, 
-.add-note-btn {
+.add-note-btn, 
+.edit-td {
   height: 40px;
   width: 100px;
   font-size: 16px;
@@ -336,7 +363,8 @@ li {
 
 .close-td, 
 .close-proj, 
-.close-note {
+.close-note, 
+.close-edit-td {
   margin-left: auto;
   font-weight: 900;
   cursor: pointer;
@@ -716,7 +744,10 @@ textarea {
 
 .low, 
 .medium, 
-.high {
+.high, 
+.ed-low, 
+.ed-medium,
+.ed-high {
   height: 30px;
   width: 85px;
   font-size: 18px;
@@ -740,10 +771,15 @@ textarea {
   font-size: 28px;
 }
 
-.pop-up-td {
+.pop-up-td, 
+.pop-up-edit-td {
   width: 750px;
   height: 600px;
   left: 35%;
+}
+
+.pop-up-edit-td {
+  padding: 20px;
 }
 
 .pop-up-proj, 
