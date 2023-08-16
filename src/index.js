@@ -46,7 +46,8 @@ const medium = document.querySelector(".medium");
 const high = document.querySelector(".high");
 const h1 = document.querySelector("h1");
 
-export let currentProject = "home-div";
+let currentProject = "home-div";
+let currentTitle = "Home";
 
 
 const search = document.querySelector(".search");
@@ -171,6 +172,11 @@ projForm.addEventListener("submit", (e) => {
   const details = document.getElementById("details-proj").value;
   projs.push(new Proj(title, details));
   displayProj(title, details);
+  const newName = new String(title);
+  const newName2 = newName.replace(/\s+/g, '-').toLowerCase();
+  const className = newName2.replace(/'/,'');
+  currentProject = `${className}-div`;
+  currentTitle = title;
   popupProj.style.display = "none";
   let allInputs = document.querySelectorAll('.input');
   allInputs.forEach(singleInput => singleInput.value = '');
@@ -211,6 +217,7 @@ home.addEventListener("click", () => {
   homeDiv.style.display = "block";
   rColHeader.textContent = "Home";
   currentProject = "home-div";
+  currentTitle = "Home";
   const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       home.classList.add("active");
@@ -226,7 +233,8 @@ navHome.addEventListener("click", () => {
     }
     homeDiv.style.display = "block";
     rColHeader.textContent = "Home";
-    currentProject = "home-div"
+    currentProject = "home-div";
+    currentTitle = "Home";
     const navBtns = document.querySelectorAll(".nav-btn");
         for (const btn of navBtns) btn.classList.remove("active");
         navHome.classList.add("active");
@@ -245,6 +253,7 @@ mainNotes.addEventListener("click", () => {
   notesDiv.style.display = "flex";
   rColHeader.textContent = "Notes";
   currentProject = "notes-div";
+  currentTitle = "Notes";
   const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       mainNotes.classList.add("active");
@@ -262,6 +271,7 @@ navNotes.addEventListener("click", () => {
   notesDiv.style.display = "flex";
   rColHeader.textContent = "Notes";
   currentProject = "notes-div";
+  currentTitle = "Notes";
   const navBtns = document.querySelectorAll(".nav-btn");
       for (const btn of navBtns) btn.classList.remove("active");
       navNotes.classList.add("active");

@@ -41,6 +41,24 @@ export class Note {
 
 export const pageLoad = () => {
 
+  let allLIs = document.querySelectorAll("li");
+  for (const item of allLIs) item.remove();
+
+  let allProjBtns = document.querySelectorAll(".proj-btn");
+  for (const item of allProjBtns) item.remove();
+
+  let allNavBtns = document.querySelectorAll(".nav-proj-btn");
+  for (const item of allNavBtns) item.remove();
+
+  const search = document.querySelector(".search");
+  const children = search.children;
+  for (let i=0; i < children.length; i++) {
+    let child = children[i];
+    if (!(child.classList.contains("stay"))) child.remove();
+  }
+
+  console.log(children);
+
   let allProjs = JSON.parse(localStorage.getItem("allProjs"));
   if (allProjs === null) {
     return;
@@ -49,6 +67,15 @@ export const pageLoad = () => {
     allProjs.forEach((proj) => {
     displayProj(proj.name, proj.details);
   })
+  }
+  
+  for (const item of children) {
+    if (item.classList.contains("home-div")) {
+      item.style.display = "block";
+      const rColHeader = document.querySelector(".r-col-header");
+      rColHeader.textContent = "Home";
+    }
+    else item.style.display = "none";
   }
 
   let allTDs = JSON.parse(localStorage.getItem("allTDs"));
@@ -72,6 +99,15 @@ export const pageLoad = () => {
   })
   }
   
+    for (const item of children) {
+      if (item.classList.contains("home-div")) {
+        item.style.display = "block";
+        const rColHeader = document.querySelector(".r-col-header");
+        rColHeader.textContent = "Home";
+      }
+      else item.style.display = "none";
+    }
+
 }
 
 export const displayTD = (name, details, duedate, priority, id, project) => {
@@ -407,7 +443,6 @@ const createEditTD = (id) => {
         let newDuedate = edDate.value;
         const edSelected = document.querySelector(".ed-selected");
         let newPriority = edSelected.textContent;
-        const newId = Math.random().toString(16).slice(2);
         let i = 0;
         for (const item of TDs) {
           if (item.id === id) {
@@ -416,16 +451,13 @@ const createEditTD = (id) => {
             item.details = newDetails;
             item.duedate = newDuedate;
             item.priority = newPriority;
-            item.id = newId;
           }
           i++;
         }
         localStorage.setItem("allTDs", JSON.stringify(TDs));
-        console.log(TDs);
         popupEdit.remove();
-        location.reload();
+        pageLoad();
       })
-    
 }
 
 
@@ -454,12 +486,47 @@ export const displayProj = (title, details) => {
   }
   const rColHeader = document.querySelector(".r-col-header");
   rColHeader.textContent = `${title}`;
-  const newDiv = document.createElement("div");
+  newProj.addEventListener("click", () => {
+    const search = document.querySelector(".search");
+    const children = search.children;
+    for (let i=0; i < children.length; i++) {
+      let child = children[i];
+      if (!(child.style.display === "none")) child.style.display = "none";
+      if (child.classList.contains(`${className}-div`)) {
+        child.style.display = "block";
+        rColHeader.textContent = `${title}`;
+      }
+      const navBtns = document.querySelectorAll(".nav-btn");
+      for (const btn of navBtns) btn.classList.remove("active");
+      newProj.classList.add("active");
+      newNavProj.classList.add("active");
+    }
+  })
+  newNavProj.addEventListener("click", () => {
+    const search = document.querySelector(".search");
+    const children = search.children;
+    for (let i=0; i < children.length; i++) {
+      let child = children[i];
+      if (!(child.style.display === "none")) child.style.display = "none";
+      if (child.classList.contains(`${className}-div`)) {
+        child.style.display = "block";
+        rColHeader.textContent = `${title}`;
+      }
+      const navBtns = document.querySelectorAll(".nav-btn");
+      for (const btn of navBtns) btn.classList.remove("active");
+      newNavProj.classList.add("active");
+      newProj.classList.add("active");
+    }
+  })
   const newName = new String(title);
   const newName2 = newName.replace(/\s+/g, '-').toLowerCase();
   const className = newName2.replace(/'/,'');
+  if (document.querySelector(`.${className}-div`)) return;
+  else {
+    const newDiv = document.createElement("div");
   newDiv.classList.add(`${className}-div`);
-  currentProject = `${className}-div`;
+
+
   search.appendChild(newDiv);
   const det = document.createElement("button");
   det.textContent = "Details";
@@ -539,40 +606,10 @@ export const displayProj = (title, details) => {
   })
   buttons.appendChild(projTrash);
   buttons.style.marginBottom = "15px";
-  newProj.addEventListener("click", () => {
-    const search = document.querySelector(".search");
-    const children = search.children;
-    for (let i=0; i < children.length; i++) {
-      let child = children[i];
-      if (!(child.style.display === "none")) child.style.display = "none";
-      if (child.classList.contains(`${className}-div`)) {
-        child.style.display = "block";
-        rColHeader.textContent = `${title}`;
-      }
-      const navBtns = document.querySelectorAll(".nav-btn");
-      for (const btn of navBtns) btn.classList.remove("active");
-      newProj.classList.add("active");
-      newNavProj.classList.add("active");
-    }
-  })
-  newNavProj.addEventListener("click", () => {
-    const search = document.querySelector(".search");
-    const children = search.children;
-    for (let i=0; i < children.length; i++) {
-      let child = children[i];
-      if (!(child.style.display === "none")) child.style.display = "none";
-      if (child.classList.contains(`${className}-div`)) {
-        child.style.display = "block";
-        rColHeader.textContent = `${title}`;
-      }
-      const navBtns = document.querySelectorAll(".nav-btn");
-      for (const btn of navBtns) btn.classList.remove("active");
-      newNavProj.classList.add("active");
-      newProj.classList.add("active");
-    }
-  })
   localStorage.setItem("allProjs", JSON.stringify(projs));
 }
+}
+
 
 let n = 1;
 
