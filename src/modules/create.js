@@ -108,6 +108,22 @@ export const pageLoad = () => {
       else item.style.display = "none";
     }
 
+  for (const item of allProjBtns) {
+    if (item.classList.contains("active")) item.classList.remove("active");
+  }
+
+  for (const item of allNavBtns) {
+    if (item.classList.contains("active")) item.classList.remove("active");
+  }
+
+  console.log(allNavBtns);
+
+  const homeBtn = document.querySelector(".home");
+  homeBtn.classList.add("active");
+  const navHomeBtn = document.querySelector(".nav-home");
+  navHomeBtn.classList.add("active");
+
+
 }
 
 export const displayTD = (name, details, duedate, priority, id, project) => {
