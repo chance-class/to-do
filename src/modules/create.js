@@ -443,7 +443,7 @@ const createEditTD = (id) => {
       })
     const submit = document.createElement("button");
     submit.classList.add("edit-td");
-    submit.textContent = "Save to-do";
+    submit.textContent = "Save";
     footer.appendChild(submit);
     
     submit.addEventListener("click", (e) => {
