@@ -57,8 +57,6 @@ export const pageLoad = () => {
     if (!(child.classList.contains("stay"))) child.remove();
   }
 
-  console.log(children);
-
   let allProjs = JSON.parse(localStorage.getItem("allProjs"));
   if (allProjs === null) {
     return;
@@ -115,8 +113,6 @@ export const pageLoad = () => {
   for (const item of allNavBtns) {
     if (item.classList.contains("active")) item.classList.remove("active");
   }
-
-  console.log(allNavBtns);
 
   const homeBtn = document.querySelector(".home");
   homeBtn.classList.add("active");
@@ -362,10 +358,7 @@ const toggleChecked = (name) => {
 const createEditTD = (id) => {
   let i = 0;
   for (const item of TDs) {
-    if (item.id === id) {
-      console.log(item);
-      currentTD = item;
-    }
+    if (item.id === id) currentTD = item;
     i++;
   }
   const content = document.querySelector(".content");
@@ -462,7 +455,6 @@ const createEditTD = (id) => {
         let i = 0;
         for (const item of TDs) {
           if (item.id === id) {
-            console.log(item);
             item.name = newName;
             item.details = newDetails;
             item.duedate = newDuedate;
